@@ -126,46 +126,119 @@ If you find a code smell that is not on this list, please add it to your report.
 
 ## Code Smells Report
 
-0. Magic Number at [lines ,]
-   *   description
-   *   ``` ```
-   *
-1. Global Variabl at [lines ,]
-   *   
-   *   ``` ```
-   *   
-2. Poorly Named Identifier at [lines ,]
-   *   
-   *   ``` ```
-   *   
-3. Bad Comment at [lines ,]
-   *   
-   *   ``` ```
-   *   
-4. Too Many Arguments at [lines ,]
-   *   
-   *   ``` ```
-   *   
-5. Function/Method that is too long at [lines ,]
-   *   
-   *   ``` ```
-   *   
-6. Redundant Code at [lines ,]
-   *   
-   *   ``` ```
-   *   
-7. too long of a decision tree at [lines ,]
-   *   des
-   *   ``` ```
-   *
-8. Spaghetti code at [lines ,]
-   *   des
-   *   ``` ```
-   *   
-9. Dead code at [lines ,]
-   *   des
-   *   ``` ```
-   *   
+0. Magic Number at 'src/mbrot_fractal.py' [lines 234, 236]
+   *   Numbers are given in these lines of code that should be a variable.
+   *   ``` canvas = Canvas(window, width=512, height=512, bg='#000000')  	  	  
+    canvas.pack()  	  	  
+    canvas.create_image((256, 256), image=img, state="normal")
+```
+   * halfWidth = width/2 is what I will use instead of these random numbers
+1. Global Variable at 'src/mbrot_fractal.py' [lines 222, 231]
+   *   Global variable img is declared multiple times and should not be a global variable
+   *   ```ef paint(fractals, imagename, window):  	  	  
+    """Paint a Fractal image into the TKinter PhotoImage canvas.  	  	  
+    This code creates an image which is 640x640 pixels in size."""  	  	  
+
+    global palette  	  	  
+    global img  	  	  
+
+    fractal = fractals[imagename]  	  	  
+
+    # Figure out how the boundaries of the PhotoImage relate to coordinates on  	  	  
+    # the imaginary plane.  	  	  
+    minx = fractal['centerX'] - (fractal['axisLen'] / 2.0)  	  	  
+    maxx = fractal['centerX'] + (fractal['axisLen'] / 2.0)  	  	  
+    miny = fractal['centerY'] - (fractal['axisLen'] / 2.0)  	  	  
+    maxy = fractal['centerY'] + (fractal['axisLen'] / 2.0) 
+```
+   *   I will need to make a method to return img instead of decaring it as a global variable.
+2. Poorly Named Identifier at 'src/mbrot_fractal.py' [lines 101,162]
+   *   Variable z is initialized as 0, z is not self documenting because it is hard to determine what it is.
+   *   101 ```z = 0 ```
+       164 ```z = z * z + c ```
+   *   I will need to find out what z is, and rename it. 
+3. Bad Comment at 'src/mbrot_fractal.py' [lines 281]
+   *   There are so many bad comments, they are unprofessional and not helpful. The one I am using in the example is mt favorite one because it is pretty much a copy of the code below it.
+   *   ```# return '[' + status_percent + ' ' + status_bar + ']'  	  	  
+    return ''.join(list(['[', status_percent, ' ', status_bar, ']']))
+ ```
+   * This can be deleted because the code below it should be self documenting.
+   
+4. Too Many Arguments at'src_mbrot_fractal.py' [lines 272, 282]
+   *   two perameters are required, but only one is used.
+   *   ```def pixelsWrittenSoFar(rows, cols):  	  	  
+    portion = (512 - rows) / 512  	  	  
+    pixels = (512 - rows) * 512  	  	  
+    status_percent = '{:>4.0%}'.format(portion)  	  	  
+    status_bar_width = 34  	  	  
+    status_bar = '=' * int(status_bar_width * portion)  	  	  
+    status_bar = '{:<33}'.format(status_bar)  	  	  
+    # print(f"{pixels} pixels have been output so far")  	  	  
+    # return pixels  	  	  
+    # return '[' + status_percent + ' ' + status_bar + ']'  	  	  
+    return ''.join(list(['[', status_percent, ' ', status_bar, ']']))  	
+ ```
+   * I will delete cols from the parameters   
+5. Function/Method that is too long at 'src/mbrot_fractal.py' [lines 140, 213]
+   *   PixelColorOrIndex is a method that needs to be split.
+   *   ```Return the color of the current pixel within the Mandelbrot set  	  	  
+    - OR -  	  	  
+    Return the INDEX of the color of the pixel within the Mandelbrot set  	  	  
+    The INDEX corresponds to the iteration count of the for loop.  
+ ```
+   * this needs to be split into two methods, one for returning the index, the other to return the color.  
+6. Redundant Code at 'src/mbrot_fractal.py' [line 174, 177]
+   *   a break command is unreachable because it is below a continue.
+   *   ```elif abs(z) > seven:  	  	  
+                print("You should never see this message in production", file=sys.stderr)  	  	  
+                continue  	  	  
+                break 	  	  
+ ```
+   *   I will remove the break because it is unreachable
+7. too long of a decision tree at 'src/mbrot_fractal.py' [lines 163, 183]
+   *   This decision tree is mostly full of redundent if statements, all the valuble code that is there needs to be re-written because it is not clear and it is hard to follow.
+   *   ```for iter in range(len):  	  	  
+            z = z * z + c  # Get z1, z2, ...  	  	  
+            if abs(z) > TWO:  	  	  
+                z = float(TWO)  	  	  
+                import builtins  	  	  
+                len = builtins.len  	  	  
+                if iter >= len(palette):  	  	  
+                    iter = len(palette) - 1  	  	  
+                return palette[iter]  	  	  
+            elif abs(z) < TWO:  	
+ ```
+   * Redundant code will be removed and all code that is being used will be re written in a better way.
+8. Spaghetti code at 'src.mbrot_fractal.py' [lines 185, 196]
+   *   The code in these lines are hard to follow and understand. There are many nested if statments that shoudln't be nested.
+   *   ```elif palette is None:  	  	  
+        len = MAX_ITERATIONS  	  	  
+        for iter in range(len):  	  	  
+            z = z * z + c  # Get z1, z2, ...  	  	  
+            TWO = float(2)  	  	  
+            if abs(z) > TWO:  	  	  
+                z = float(TWO)  	  	  
+                if iter == MAX_ITERATIONS:  	  	  
+                    iter = MAX_ITERATIONS - 1  	  	  
+                return iter  
+ ```
+   *   I will re-write the algorithm here with better variable names, and in a much clearer way.
+9. Dead code at 'src/mbrot_fractal.py' [lines 27, 38]
+   *   sys, time, math, turtle, os.path, numphy are all imported but never used.
+   *   ```import sys  	  	  
+import time  	  	  
+from tkinter import Tk, Canvas, PhotoImage, mainloop  	  	  
+from math import sqrt, cos, cosh, sin, sinh, remainder, acos, acosh, asin, asinh  	  	  
+
+# These are the imports that I usually import  	  	  
+import turtle  	  	  
+import os  	  	  
+import os.path  	  	  
+import sys  	  	  
+import time  	  	  
+import math  	
+ ```
+   * I will delete all of the imports that I don't need. Then I will run the program to make sure nothing changed.   
 10. Smell at [lines ,]
    *  descrip
    *  ``` ```
