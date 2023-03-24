@@ -126,4 +126,48 @@ If you find a code smell that is not on this list, please add it to your report.
 
 ## Code Smells Report
 
-*TODO: Replace this note with your report*
+0. Magic Number at [lines ,]
+   *   description
+   *   ``` ```
+   *
+1. Global Variabl at [lines ,]
+   *   
+   *   ``` ```
+   *   
+2. Poorly Named Identifier at [lines ,]
+   *   
+   *   ``` ```
+   *   
+3. Bad Comment at [lines ,]
+   *   
+   *   ``` ```
+   *   
+4. Too Many Arguments at [lines ,]
+   *   
+   *   ``` ```
+   *   
+5. Function/Method that is too long at [lines ,]
+   *   
+   *   ``` ```
+   *   
+6. Redundant Code at [lines ,]
+   *   
+   *   ``` ```
+   *   
+7. too long of a decision tree at [lines ,]
+   *   des
+   *   ``` ```
+   *
+8. Spaghetti code at [lines ,]
+   *   des
+   *   ``` ```
+   *   
+9. Dead code at [lines ,]
+   *   des
+   *   ``` ```
+   *   
+10. Smell at [lines ,]
+   *  descrip
+   *  ``` ```
+   *  
+
