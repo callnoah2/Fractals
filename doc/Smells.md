@@ -132,7 +132,8 @@ If you find a code smell that is not on this list, please add it to your report.
     canvas.pack()  	  	  
     canvas.create_image((256, 256), image=img, state="normal")
 ```
-   * halfWidth = width/2 is what I will use instead of these random numbers
+   * halfWidth = width/2 is what I will use instead of these random numbers of 256
+
 1. Global Variable at 'src/mbrot_fractal.py' [lines 222, 231]
    *   Global variable img is declared multiple times and should not be a global variable
    *   ```ef paint(fractals, imagename, window):  	  	  
