@@ -33,12 +33,7 @@ def getColorFromPalette(z):
     """  	  	  
     Return the index of the color of the current pixel  	  	  
     within the Phoenix fractal in the palette array  	  	  
-    """  	  	  
-
-    # I feel bad about all of the global variables I'm using.  	  	  
-    # There must be a better way...  	  	  
-    global grad  	  	  
-    global win  	  	  
+    """
 
     # c is the Julia Constant; varying this value gives rise to a variety of variated images  	  	  
     Julia = complex(0.5667, 0.0)
@@ -73,7 +68,6 @@ def getColorFromPalette(z):
         if abs(z) > 2:  	  	  
             return grad[i]  # The sequence is unbounded
     return grad[101]         # Else this is a bounded sequence
-
 
 Save_As_Picture = True
 tkPhotoImage = None
@@ -128,12 +122,6 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, canvasSize):
     # Keep track of the fraction of pixels that have been written up to this point in the program  	  	  
     fraction_of_pixels_writtenSoFar = int(canvasSize // 640)
 
-    # for r (where r means "row") in the range of the size of the square image,  	  	  
-    # but count backwards (that's what the -1 as the 3rd parameter to the range() function means - it's the "step"  	  	  
-    # You can actually put any number there that you want, because it defaults to "1" you usually don't have to  	  	  
-    # but I have to here because we're actually going BACKWARDS, which took me  	  	  
-    # a long time to figure out, so don't change it, or else the picture won't  	  	  
-    # come out right
     row = canvasSize
     while row in range(canvasSize, 0, -1):
         # for c (c == column) in the range of pixels in a square of size s  	  	  
@@ -144,8 +132,7 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, canvasSize):
             # GRAPHICS... whatev)  	  	  
             X = min[0] + c * size  	  	  
             Y = 0  	  	  
-            # get the color of the pixel at this point in the complex plain  	  	  
-            cp = getColorFromPalette(complex(X, Y))  	  	  
+            # get the color of the pixel at this point in the complex plain
             # calculate the X value in the complex plane (but I know this is  	  	  
             # really the IMAGINARY axis that we're talking about here...)  	  	  
             Y = min[1] + row * size
@@ -263,10 +250,8 @@ def phoenix_main(i):
     # the size of the image we will create is 512x512 pixels  	  	  
     # Look, I  know globals are bad, but I don't know how else to use those  	  	  
     # variables in here if I don't do it this way.  I didn't take any fancy CS  	  	  
-    # classes, sue me  	  	  
-    global tkPhotoImage  	  	  
-    global win  	  	  
-    global canvasSize
+    # classes, sue me
+    global win
 
     # Note the time of when we started so we can measure performance improvements  	  	  
     b4 = time()  	  	  
@@ -284,11 +269,7 @@ def phoenix_main(i):
         # Write out the Fractal into a .gif image file  	  	  
         tkPhotoImage.write(i + ".png")  	  	  
         #tkPhotoImage.write(f"{i}.png")  	  	  
-        print(f"\nDone in {time() - b4:.3f} seconds!", file=sys.stderr)  	  	  
-
-    if Save_As_Picture:  	  	  
-        # Output the Fractal into a .png image  	  	  
-        tkPhotoImage.write(f"{i}.png")  	  	  
+        print(f"\nDone in {time() - b4:.3f} seconds!", file=sys.stderr)
         print("Wrote picture " + i + ".png", file=sys.stderr)
 
     print("Close the image window to exit the program", file=sys.stderr)  	  	  
