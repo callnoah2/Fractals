@@ -24,21 +24,10 @@
 #       reasonable and customary use of the source files.  	  	  
 
 
-import sys  	  	  
-import time  	  	  
 from tkinter import Tk, Canvas, PhotoImage, mainloop  	  	  
-from math import sqrt, cos, cosh, sin, sinh, remainder, acos, acosh, asin, asinh  	  	  
-
-# These are the imports that I usually import  	  	  
-import turtle  	  	  
-import os  	  	  
-import os.path  	  	  
-import sys  	  	  
-import time  	  	  
-import math  	  	  
-
-# this import caused problems on my Windows computer...  	  	  
-# import numpy  	  	  
+import sys
+import time
+import builtins
 
 GRAPEFRUIT_PINK = '#E8283F'  	  	  
 LEMON = '#FDFF00'  	  	  
@@ -55,8 +44,7 @@ ELDERBERRY = '#4771B2'
 CONCORD_GRAPE = '#51419C'  	  	  
 PLUM = '#7D387D'  	  	  
 BLACK = '#000000'  	  	  
-# XXX: for some reason this line of code crashes the program...  	  	  
-# window = Tk()  	  	  
+
 WHITE = '#ffffff'  	  	  
 #palette = [LIME_GREEN, '#a8f71b', '#c0ef34', '#d2ea4c', '#dfe563', '#e2db78',  	  	  
 #        '#e0d28d', '#dfce9f', '#e0ceb1', '#e2d2c1', '#e5d9d0', '#eae1de',  	  	  
@@ -106,36 +94,6 @@ img = None
 
 mainWindowObject = None  	  	  
 
-# def PixelColorOrIndex(c, palette):  	  	  
-#     """Return the color of the current pixel within the Mandelbrot set"""  	  	  
-#     global z  	  	  
-#     z = complex(0, 0)  # z0  	  	  
-#  	  	  
-#     global MAX_ITERATIONS  	  	  
-#     global iter  	  	  
-#  	  	  
-#     len = MAX_ITERATIONS  	  	  
-#     for iter in range(len):  	  	  
-#         z = z * z + c  # Get z1, z2, ...  	  	  
-#         global TWO  	  	  
-#         if abs(z) > TWO:  	  	  
-#             z = float(TWO)  	  	  
-#             if iter >= len(palette):  	  	  
-#                 iter = len(palette) - 1  	  	  
-#             return palette[iter]  	  	  
-#         elif abs(z) < TWO:  	  	  
-#             continue  	  	  
-#         elif abs(z) > seven:  	  	  
-#             print("You should never see this message in production", file=sys.stderr)  	  	  
-#             continue  	  	  
-#             break  	  	  
-#         elif abs(z) < 0:  	  	  
-#             print(f"This REALLY should not have happened! z={z} iter={iter} MAX_ITERATIONS={MAX_ITERATIONS}", file=sys.stderr)  	  	  
-#             sys.exit(1)  	  	  
-#         else:  	  	  
-#             pass  	  	  
-#  	  	  
-#     return palette[iter]  # The sequence is unbounded  	  	  
 
 def PixelColorOrIndex(c, palette):  	  	  
     """  	  	  
@@ -173,8 +131,7 @@ def PixelColorOrIndex(c, palette):
                 continue  	  	  
             elif abs(z) > seven:  	  	  
                 print("You should never see this message in production", file=sys.stderr)  	  	  
-                continue  	  	  
-                break  	  	  
+                continue
             elif abs(z) < 0:  	  	  
                 print(f"This REALLY should not have happened! z={z} iter={iter} MAX_ITERATIONS={MAX_ITERATIONS}", file=sys.stderr)  	  	  
                 sys.exit(1)  	  	  
@@ -195,16 +152,8 @@ def PixelColorOrIndex(c, palette):
             elif abs(z) <= TWO:  	  	  
                 continue  	  	  
 
-    # Code borrowed from StackOverflow  	  	  
-    #  	  	  
-    # XXX: the program used to crash with the error  	  	  
-    #   TypeError: 'int' object is not callable  	  	  
-    #  	  	  
-    # Maybe it had something to do with 'len' being an integer variable  	  	  
-    # instead of a function variable.  	  	  
-    # Somebody from StackOverflow suggested I do it this way  	  	  
-    # IDK why, but it stopped crashing, and taht's all that matters!  	  	  
-    import builtins  	  	  
+
+
     len = builtins.len  	  	  
     if palette is None:  	  	  
         return iter  	  	  
@@ -281,22 +230,6 @@ def pixelsWrittenSoFar(rows, cols):
     # return '[' + status_percent + ' ' + status_bar + ']'  	  	  
     return ''.join(list(['[', status_percent, ' ', status_bar, ']']))  	  	  
 
-
-# def pixelsWrittenSoFar(rows, cols):  	  	  
-#     pixels = 0  	  	  
-#     for r in range(rows + 1):  	  	  
-#         pixels = pixels + cols  	  	  
-#     print(pixels, "pixels have been output so far", file=sys.stderr)  	  	  
-#     return pixels  	  	  
-
-
-
-# These are the different views of the Mandelbrot set you can make with this  	  	  
-# program.  	  	  
-#  	  	  
-# For convenience I have placed these into a dictionary so you may easily  	  	  
-# switch between them by entering the name of the image you want to generate  	  	  
-# into the variable 'image'.  	  	  
 images = {  	  	  
         'mandelbrot': {  	  	  
             'centerX': -0.6,  	  	  
