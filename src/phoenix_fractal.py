@@ -27,7 +27,7 @@ import sys
 from tkinter import Tk, Canvas, PhotoImage, mainloop  	  	  
 from time import time  	  	  
 
-s = 512  	  	  
+canvasSize = 512
 
 def getColorFromPalette(z):  	  	  
     """  	  	  
@@ -97,7 +97,7 @@ def getFractalConfigurationDataFromFractalRepositoryDictionary(dictionary, name)
 Save_As_Picture = True  	  	  
 tkPhotoImage = None  	  	  
 
-def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):  	  	  
+def makePictureOfFractal(f, i, e, w, g, p, W, a, b, canvasSize):
     """Paint a Fractal image into the TKinter PhotoImage canvas.  	  	  
     Assumes the image is 640x640 pixels."""  	  	  
 
@@ -117,7 +117,7 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
            (f['centerY'] + (f['axisLength'] / 2.0)))  	  	  
 
     # Display the image on the screen  	  	  
-    tk_Interface_PhotoImage_canvas_pixel_object = Canvas(win, width=s, height=s, bg=W)  	  	  
+    tk_Interface_PhotoImage_canvas_pixel_object = Canvas(win, width=canvasSize, height=canvasSize, bg=W)
 
     # pack the canvas object into its parent widget  	  	  
     tk_Interface_PhotoImage_canvas_pixel_object.pack()  	  	  
@@ -127,7 +127,7 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
 
     # Create the TK PhotoImage object that backs the Canvas Objcet  	  	  
     # This is what lets us draw individual pixels instead of drawing things like rectangles, squares, and quadrilaterals  	  	  
-    tk_Interface_PhotoImage_canvas_pixel_object.create_image((s/2, s/2), image=p, state="normal")  	  	  
+    tk_Interface_PhotoImage_canvas_pixel_object.create_image((canvasSize/2, canvasSize/2), image=p, state="normal")
     tk_Interface_PhotoImage_canvas_pixel_object.pack()  # This seems repetitive  	  	  
     tk_Interface_PhotoImage_canvas_pixel_object.pack()  # But it is how Larry wrote it the tutorial  	  	  
     tk_Interface_PhotoImage_canvas_pixel_object.pack()  # Larry's a smart guy.  I'm sure he has his reasons.  	  	  
@@ -139,13 +139,13 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
     tk_Interface_PhotoImage_canvas_pixel_object.pack()  # Does this even matter?  	  	  
     # At this scale, how much length and height of the  	  	  
     # imaginary plane does one pixel cover?  	  	  
-    size = abs(max[0] - min[0]) / s  	  	  
+    size = abs(max[0] - min[0]) / canvasSize
 
     # pack the canvas object into its parent widget  	  	  
     tk_Interface_PhotoImage_canvas_pixel_object.pack()  	  	  
 
     # Keep track of the fraction of pixels that have been written up to this point in the program  	  	  
-    fraction_of_pixels_writtenSoFar = int(s // 640)  	  	  
+    fraction_of_pixels_writtenSoFar = int(canvasSize // 640)
 
     # for r (where r means "row") in the range of the size of the square image,  	  	  
     # but count backwards (that's what the -1 as the 3rd parameter to the range() function means - it's the "step"  	  	  
@@ -153,11 +153,11 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
     # but I have to here because we're actually going BACKWARDS, which took me  	  	  
     # a long time to figure out, so don't change it, or else the picture won't  	  	  
     # come out right  	  	  
-    r = s  	  	  
-    while r in range(s, 0, -1):  	  	  
+    r = canvasSize
+    while r in range(canvasSize, 0, -1):
         # for c (c == column) in the range of pixels in a square of size s  	  	  
         cs = []  	  	  
-        for c in range(s):  	  	  
+        for c in range(canvasSize):
             # calculate the X value in the complex plane (I guess that's  	  	  
             # actually the REAL number part, but we call it X because  	  	  
             # GRAPHICS... whatev)  	  	  
@@ -174,9 +174,9 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
             cp = getColorFromPalette(complex(X, Y))  	  	  
             cs.append(cp)  	  	  
         pixls = '{' + ' '.join(cs) + '}'  	  	  
-        p.put(pixls, (0, s - r))  	  	  
+        p.put(pixls, (0, canvasSize - r))
         w.update()  # display a row of pixels  	  	  
-        fraction_of_pixels_writtenSoFar = (s - r) / s # update the number of pixels output so far  	  	  
+        fraction_of_pixels_writtenSoFar = (canvasSize - r) / canvasSize # update the number of pixels output so far
         # print a statusbar on the console  	  	  
         print(f"[{fraction_of_pixels_writtenSoFar:>4.0%}"  	  	  
                 + f"{'=' * int(34 * fraction_of_pixels_writtenSoFar):<33}]",  	  	  
@@ -285,7 +285,7 @@ def phoenix_main(i):
     # classes, sue me  	  	  
     global tkPhotoImage  	  	  
     global win  	  	  
-    global s  	  	  
+    global canvasSize
 
     # Note the time of when we started so we can measure performance improvements  	  	  
     b4 = time()  	  	  
@@ -294,10 +294,10 @@ def phoenix_main(i):
 
     print("Rendering %s fractal" % i, file=sys.stderr)  	  	  
     # construct a new TK PhotoImage object that is 512 pixels square...  	  	  
-    tkPhotoImage = PhotoImage(width=s, height=s)  	  	  
+    tkPhotoImage = PhotoImage(width=canvasSize, height=canvasSize)
     # ... and use it to make a picture of a fractal  	  	  
     # TODO - should I have named this function "makeFractal()" or maybe just "makePicture"?  	  	  
-    makePictureOfFractal(f[i], i, ".png", win, grad, tkPhotoImage, GREY0, None, None, s)  	  	  
+    makePictureOfFractal(f[i], i, ".png", win, grad, tkPhotoImage, GREY0, None, None, canvasSize)
 
     if Save_As_Picture:  	  	  
         # Write out the Fractal into a .gif image file  	  	  
