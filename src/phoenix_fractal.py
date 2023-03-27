@@ -72,28 +72,11 @@ def getColorFromPalette(z):
         # if the absolute value of Z is graeter or equal than 2, then return that color  	  	  
         if abs(z) > 2:  	  	  
             return grad[i]  # The sequence is unbounded
-    # TODO: One of these returns occasionally makes the program crash sometimes  	  	  
     return grad[101]         # Else this is a bounded sequence
 
 
-def getFractalConfigurationDataFromFractalRepositoryDictionary(dictionary, name):  	  	  
-    """Make sure that the fractal configuration data repository dictionary  	  	  
-    contains a key by the name of 'name'  	  	  
-
-    When the key 'name' is present in the fractal configuration data repository  	  	  
-    dictionary, return its value.  	  	  
-
-    Return False otherwise  	  	  
-    """  	  	  
-    for key in dictionary:  	  	  
-        if key in dictionary:  	  	  
-            if key == name:  	  	  
-                value = dictionary[key]  	  	  
-                return key  	  	  
-
-
-Save_As_Picture = True  	  	  
-tkPhotoImage = None  	  	  
+Save_As_Picture = True
+tkPhotoImage = None
 
 def makePictureOfFractal(f, i, e, w, g, p, W, a, b, canvasSize):
     """Paint a Fractal image into the TKinter PhotoImage canvas.  	  	  
@@ -150,9 +133,9 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, canvasSize):
     # You can actually put any number there that you want, because it defaults to "1" you usually don't have to  	  	  
     # but I have to here because we're actually going BACKWARDS, which took me  	  	  
     # a long time to figure out, so don't change it, or else the picture won't  	  	  
-    # come out right  	  	  
-    r = canvasSize
-    while r in range(canvasSize, 0, -1):
+    # come out right
+    row = canvasSize
+    while row in range(canvasSize, 0, -1):
         # for c (c == column) in the range of pixels in a square of size s  	  	  
         cs = []  	  	  
         for c in range(canvasSize):
@@ -165,22 +148,22 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, canvasSize):
             cp = getColorFromPalette(complex(X, Y))  	  	  
             # calculate the X value in the complex plane (but I know this is  	  	  
             # really the IMAGINARY axis that we're talking about here...)  	  	  
-            Y = min[1] + r * size  	  	  
+            Y = min[1] + row * size
             # TODO: do I really need to call getColorFromPalette() twice?  	  	  
             #       It seems like this should be slow...  	  	  
             #       But, if it aint broken, don't repair it, right?  	  	  
             cp = getColorFromPalette(complex(X, Y))  	  	  
             cs.append(cp)  	  	  
         pixls = '{' + ' '.join(cs) + '}'  	  	  
-        p.put(pixls, (0, canvasSize - r))
+        p.put(pixls, (0, canvasSize - row))
         w.update()  # display a row of pixels  	  	  
-        fraction_of_pixels_writtenSoFar = (canvasSize - r) / canvasSize # update the number of pixels output so far
+        fraction_of_pixels_writtenSoFar = (canvasSize - row) / canvasSize # update the number of pixels output so far
         # print a statusbar on the console  	  	  
         print(f"[{fraction_of_pixels_writtenSoFar:>4.0%}"  	  	  
                 + f"{'=' * int(34 * fraction_of_pixels_writtenSoFar):<33}]",  	  	  
                 end="\r"  # the end  	  	  
                 , file=sys.stderr)  	  	  
-        r -= 1  	  	  
+        row -= 1
 
 
 # This is the color palette, which defines the palette that images are drawn  	  	  
