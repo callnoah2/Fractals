@@ -27,7 +27,6 @@
 from tkinter import Tk, Canvas, PhotoImage, mainloop  	  	  
 import sys
 import time
-import builtins
 
 GRAPEFRUIT_PINK = '#E8283F'  	  	  
 LEMON = '#FDFF00'  	  	  
@@ -45,24 +44,6 @@ CONCORD_GRAPE = '#51419C'
 PLUM = '#7D387D'  	  	  
 BLACK = '#000000'  	  	  
 
-WHITE = '#ffffff'  	  	  
-#palette = [LIME_GREEN, '#a8f71b', '#c0ef34', '#d2ea4c', '#dfe563', '#e2db78',  	  	  
-#        '#e0d28d', '#dfce9f', '#e0ceb1', '#e2d2c1', '#e5d9d0', '#eae1de',  	  	  
-#        '#efebea', '#f7f5f5', WHITE, '#f7f5f5', '#efebea', '#eae0de',  	  	  
-#        '#e5d6d0', '#e2cdc1', '#e0c5b1', '#dfbf9f', '#e0bc8d', '#e2bd78',  	  	  
-#        '#e5c163', '#eac94c', '#efd634', '#f7e81b', LEMON, '#f7e81b',  	  	  
-#        '#efd634', '#eac94c', '#e5c163', '#e2bd78', '#e0bc8d', '#dfbf9f',  	  	  
-#        '#e0c5b1', '#e2cdc1', '#e5d6d0', '#eae0de', '#efebea', '#f7f5f5',  	  	  
-#        WHITE, '#f6f5f5', '#efeaea', '#e9dfdd', '#e4d4d0', '#e1c9c1',  	  	  
-#        '#dfbfb0', '#deb69f', '#deae8c', '#e0a978', '#e2a563', '#e7a54c',  	  	  
-#        '#eca834', '#f3ae1b', TANGERINE, '#f3ae1b', '#eca834', '#e7a54c',  	  	  
-#        '#e2a563', '#e0a978', '#deae8c', '#deb69f', '#dfbfb0', '#e1c9c1',  	  	  
-#        '#e4d4d0', '#e9dfdd', '#efeaea', '#f6f5f5', WHITE, '#f6f6f5',  	  	  
-#        '#efefea', '#e5e9de', '#d5e3d1', '#c3dfca', '#b4ddd1', '#a3d2db',  	  	  
-#        '#91adda', '#857fdb', '#a66bdc', '#dc56df', '#e33f9d', WHITE,  	  	  
-#        '#f6f5f4', '#eeeee8', '#e2e7db', '#cedead', '#beefcc', '#abdbd9',  	  	  
-#        '#99beda', '#858cda', '#9c70dc', '#d159de', '#e341a4',  	  	  
-#        GRAPEFRUIT_PINK, ]  	  	  
 
 # This color palette contains 100 color steps.  	  	  
 palette = [CUSTARD, '#E0DA9E', '#E0DC9C', '#DFDE9B', '#DEDF9A', '#DBDE98',  	  	  
@@ -85,7 +66,6 @@ palette = [CUSTARD, '#E0DA9E', '#E0DC9C', '#DFDE9B', '#DEDF9A', '#DBDE98',
            '#6F3C8A', '#713C88', '#733B87', '#753B85', '#763A84', '#783A83',  	  	  
            '#793981', '#7A3980', '#7C387E', PLUM]  	  	  
 
-MAX_ITERATIONS = 115  	  	  
 z = 0  	  	  
 seven = 7.0  	  	  
 TWO = 2  	  	  
@@ -261,11 +241,6 @@ images = {
             'axisLen': 0.008,  	  	  
             },  	  	  
 
-        'spiral1': {  	  	  
-            'centerX': -0.747,  	  	  
-            'centerY': 0.1075,  	  	  
-            'axisLen': 0.002,  	  	  
-            },  	  	  
 
         'elephants': {  	  	  
             'centerX':  0.3015,  	  	  
