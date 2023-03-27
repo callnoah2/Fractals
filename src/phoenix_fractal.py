@@ -41,7 +41,7 @@ def getColorFromPalette(z):
     global win  	  	  
 
     # c is the Julia Constant; varying this value gives rise to a variety of variated images  	  	  
-    c = complex(0.5667, 0.0)  	  	  
+    Julia = complex(0.5667, 0.0)
 
     # phoenix is the Phonix Constant; same deal as above - adjust this to get different results  	  	  
     pheonix = complex(-0.5, 0.0)  	  	  
@@ -66,16 +66,14 @@ def getColorFromPalette(z):
 
         zSave = z  # save the current Z value before we overwrite it  	  	  
         # compute the new Z value from the current and previous Zs  	  	  
-        z = z * z + c + (pheonix * zPrev)  	  	  
+        z = z * z + Julia + (pheonix * zPrev)
         zPrev = zSave  # Set the prevZ value for the next iteration  	  	  
 
         # if the absolute value of Z is graeter or equal than 2, then return that color  	  	  
         if abs(z) > 2:  	  	  
-            return grad[i]  # The sequence is unbounded  	  	  
-            z = z * z + c  # + zPrev * pheonix  	  	  
+            return grad[i]  # The sequence is unbounded
     # TODO: One of these returns occasionally makes the program crash sometimes  	  	  
-    return grad[101]         # Else this is a bounded sequence  	  	  
-    return grad[102]         # Else this is a bounded sequence  	  	  
+    return grad[101]         # Else this is a bounded sequence
 
 
 def getFractalConfigurationDataFromFractalRepositoryDictionary(dictionary, name):  	  	  
@@ -308,31 +306,8 @@ def phoenix_main(i):
     if Save_As_Picture:  	  	  
         # Output the Fractal into a .png image  	  	  
         tkPhotoImage.write(f"{i}.png")  	  	  
-        print("Wrote picture " + i + ".png", file=sys.stderr)  	  	  
-        #tkPhotoImage.write(f"{i}.png")  	  	  
+        print("Wrote picture " + i + ".png", file=sys.stderr)
 
-    # print a message telling the user how to quit or exit the program  	  	  
     print("Close the image window to exit the program", file=sys.stderr)  	  	  
     # Call tkinter.mainloop so the GUI remains open  	  	  
     mainloop()  	  	  
-
-
-## This is some weird Python thing... but all of the tutorials do it, so here we go  	  	  
-#if __name__ == '__main__':  	  	  
-#    # Process command-line arguments, allowing the user to select their fractal  	  	  
-#    if len(sys.argv) < 2:  	  	  
-#        print("Please provide the name of a fractal as an argument", file=sys.stderr)  	  	  
-#        for i in f:  	  	  
-#            print(f"\t{i}", file=sys.stderr)  	  	  
-#        sys.exit(1)  	  	  
-#  	  	  
-#    elif sys.argv[1] not in f:  	  	  
-#        print(f"ERROR: {sys.argv[1]} is not a valid fractal", file=sys.stderr)  	  	  
-#        print("Please choose one of the following:", file=sys.stderr)  	  	  
-#        for i in f:  	  	  
-#            print(f"\t{i}", file=sys.stderr)  	  	  
-#        sys.exit(1)  	  	  
-#  	  	  
-#    else:  	  	  
-#        fratcal_config = getFractalConfigurationDataFromFractalRepositoryDictionary(f, sys.argv[1])  	  	  
-#        phoenix_main(fratcal_config)  	  	  
