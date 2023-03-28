@@ -2,7 +2,6 @@ from tkinter import Tk, Canvas, PhotoImage
 import time
 import Mandelbrot
 import Phoenix
-import FractalInformation
 import sys
 import Palette
 start = time.time()
@@ -37,16 +36,16 @@ maxIter = 115
 #     status_bar = '=' * int(status_bar_width * portion)
 #     status_bar = '{:<33}'.format(status_bar)
 #     return ''.join(list(['[', status_percent, ' ', status_bar, ']']))
-def make_picture_of_fractal(fractal, canvas_size):
+def make_picture_of_fractal(fractal, canvas_size, fractalInfo):
     """Paint a Fractal image into the TKinter PhotoImage canvas.
     Assumes the image is 640x640 pixels."""
-    photo_image = PhotoImage(canvas_size, canvas_size)
+    root = Tk()
+    photo_image = PhotoImage(master=root, width=canvas_size, height=canvas_size)
     min_coord = (fractal['centerX'] - (fractal['axisLength'] / 2.0), fractal['centerY'] - (fractal['axisLength'] / 2.0))
     max_coord = (fractal['centerX'] + (fractal['axisLength'] / 2.0), fractal['centerY'] + (fractal['axisLength'] / 2.0))
 
     bg_color = '#ffffff'
-    win = Tk()
-    canvas = Canvas(win, width=canvas_size, height=canvas_size, bg=bg_color)
+    canvas = Canvas(root, width=canvas_size, height=canvas_size, bg=bg_color)
     canvas.pack()
     canvas.create_image((canvas_size / 2, canvas_size / 2), image=photo_image, state="normal")
     canvas.pack()
@@ -65,7 +64,7 @@ def make_picture_of_fractal(fractal, canvas_size):
             cs.append(color)
         pixels = '{' + ' '.join(cs) + '}'
         photo_image.put(pixels, (0, canvas_size - row))
-        win.update()
+        root.update()
         fraction_of_pixels_written_so_far = (canvas_size - row) / canvas_size
         print(f"[{fraction_of_pixels_written_so_far:>4.0%}" + f"{'=' * int(34 * fraction_of_pixels_written_so_far):<33}]", end="\r", file=sys.stderr)
         row -= 1

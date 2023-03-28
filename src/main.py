@@ -27,6 +27,7 @@ import sys
 from FractalInformation import fractalDict
 import ImagePainter
 
+
 canvasSize = 512
 
 if len(sys.argv) < 2:
@@ -35,11 +36,11 @@ if len(sys.argv) < 2:
         print(i)
     sys.exit(1)
 else:
-    fractal = sys.argv[2]
+    fractal = sys.argv[1]
 
 if fractal in fractalDict:
-    fractal_info = fractalDict[fractal]
-    ImagePainter.make_picture_of_fractal(fractal, canvasSize)
+    fractalInfo = fractalDict[fractal]
+    ImagePainter.make_picture_of_fractal(fractal, canvasSize, fractalInfo)
 else:
     print(f"ERROR: {fractal} is not a valid fractal")
     print("Please choose one of the following:")
