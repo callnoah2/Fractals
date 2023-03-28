@@ -24,9 +24,10 @@
 
 
 import sys
-import Phoenix
-import Mandelbrot
 from FractalInformation import fractalDict
+import ImagePainter
+
+canvasSize = 512
 
 if len(sys.argv) < 2:
     print("Please provide the name of the fractal as an argument.")
@@ -38,10 +39,7 @@ else:
 
 if fractal in fractalDict:
     fractal_info = fractalDict[fractal]
-    if 'axisLen' in fractal_info:
-        Mandelbrot.mBrotIter(fractal_info['centerX'], fractal_info['centerY'], fractal_info['axisLen'])
-    else:
-        Phoenix.phoenixIter(fractal_info['centerX'], fractal_info['centerY'], fractal_info['axisLen'])
+    ImagePainter.make_picture_of_fractal(fractal, canvasSize)
 else:
     print(f"ERROR: {fractal} is not a valid fractal")
     print("Please choose one of the following:")

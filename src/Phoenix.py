@@ -78,8 +78,8 @@ def phoenixIter(z, maxIter):
 
     return maxIter
 
-Save_As_Picture = True
-tkPhotoImage = None
+# Save_As_Picture = True
+# tkPhotoImage = None
 
 # def makePictureOfFractal(f, i, e, w, g, p, W, a, b, canvasSize):
 #     """Paint a Fractal image into the TKinter PhotoImage canvas.
@@ -129,24 +129,24 @@ tkPhotoImage = None
 #                 , file=sys.stderr)
 #         row -= 1
 
-BLACK = '#FFFFFF'
-# grad += [BLACK] * 6  # six pixels should be enough
-
-# This is how you write colors for computers
-WHITE = '#ffffff'  # white
-RED = '#ff0000'  # red
-BLUE = '#00ff00'  # blue
-GREEN = '#0000ff'  # green
-# BLACK = '#000000'  # black
-ORANGE = '#ffa50'  # orange
-TOMATO = '#ff6347'  # tomato (a shade of red)
-HOT_PINK = '#ff69b4'  # hot pink (a kind of pink)
-REBECCA_PURPLE = '#663399'  # Rebecca Purple
-LIME_GREEN = '#89ff00'  # lime green (brighter than regular green)
-GREY0 = '#000000'  # gray 0 - basically the same as black
-GRAY37 = '#5e5e5e'  # gray 37 - lighter than black and gray 36
-GREY74 = '#bdbdbd'  # gray 74 - almost white
-GRAY99 = '#fcfcfc'  # gray 99 - almost white
+# BLACK = '#FFFFFF'
+# # grad += [BLACK] * 6  # six pixels should be enough
+#
+# # This is how you write colors for computers
+# WHITE = '#ffffff'  # white
+# RED = '#ff0000'  # red
+# BLUE = '#00ff00'  # blue
+# GREEN = '#0000ff'  # green
+# # BLACK = '#000000'  # black
+# ORANGE = '#ffa50'  # orange
+# TOMATO = '#ff6347'  # tomato (a shade of red)
+# HOT_PINK = '#ff69b4'  # hot pink (a kind of pink)
+# REBECCA_PURPLE = '#663399'  # Rebecca Purple
+# LIME_GREEN = '#89ff00'  # lime green (brighter than regular green)
+# GREY0 = '#000000'  # gray 0 - basically the same as black
+# GRAY37 = '#5e5e5e'  # gray 37 - lighter than black and gray 36
+# GREY74 = '#bdbdbd'  # gray 74 - almost white
+# GRAY99 = '#fcfcfc'  # gray 99 - almost white
 
 
 # def phoenix_main(i):

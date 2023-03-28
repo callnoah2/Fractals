@@ -24,10 +24,6 @@
 #       reasonable and customary use of the source files.
 
 
-from tkinter import Tk, Canvas, PhotoImage, mainloop
-import sys
-import time
-
 # GRAPEFRUIT_PINK = '#E8283F'
 # LEMON = '#FDFF00'
 # LIME_GREEN = '#89FF00'
@@ -53,9 +49,9 @@ def mBrotIter(c, max_iterations):
     complex number z = 0 before the absolute value of z becomes greater than 2 or the maximum number of iterations
     is reached, whichever comes first.
     """
-    z = 0
+    z = complex(0,0)
     for i in range(max_iterations):
-        z = z**2 + c
+        z = z*z + c
         if abs(z) > 2:
             return i
     return max_iterations
