@@ -4,7 +4,10 @@
 |-------------|------------|--------------------
 |  March 24   | 3.5 hours  | Finished phase 0, did startercode quiz, smells
 |  March 26   | 3 hours    | Finshed Phase1
-|  TOTAL      | 6.5 hours  | *Your TOTAL should agree with your daily entries*
+|  March 27   | 2 hours    | Working on phase two
+|  March 28   | 3 hours    | Worked on phase two
+|  March 29   | 1 hour     | Finished Phase two
+|  TOTAL      | 12.5 hours | *Your TOTAL should agree with your daily entries*
 
 
 ## Signature 5.1
