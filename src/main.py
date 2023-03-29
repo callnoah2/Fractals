@@ -46,7 +46,7 @@ if fractal in fractalDict:
         whichFractal = 1
     else:
         whichFractal = 2
-    ImagePainter.make_picture_of_fractal(fractalParam, canvasSize, whichFractal)
+    ImagePainter.make_picture_of_fractal(fractalParam, canvasSize, whichFractal, fractal)
 else:
     print(f"ERROR: {fractal} is not a valid fractal")
     print("Please choose one of the following:")

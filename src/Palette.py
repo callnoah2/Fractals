@@ -38,4 +38,7 @@ grad = ['#ffe4b5', '#ffe5b2', '#ffe7af', '#ffe8ac', '#ffeaa8', '#ffeca5',
 def getLen():
     return len(p)
 def getColor(index):
-    return p[index]
+    if index >= getLen():
+        return p[getLen()-1]
+    else:
+        return p[index]
