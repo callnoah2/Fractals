@@ -36,13 +36,13 @@ maxIter = 115
 #     status_bar = '=' * int(status_bar_width * portion)
 #     status_bar = '{:<33}'.format(status_bar)
 #     return ''.join(list(['[', status_percent, ' ', status_bar, ']']))
-def make_picture_of_fractal(fractal, canvas_size, fractalInfo):
+def make_picture_of_fractal(fractal, canvas_size, whichFractal):
     """Paint a Fractal image into the TKinter PhotoImage canvas.
     Assumes the image is 640x640 pixels."""
     root = Tk()
     photo_image = PhotoImage(master=root, width=canvas_size, height=canvas_size)
-    min_coord = (fractal['centerX'] - (fractal['axisLength'] / 2.0), fractal['centerY'] - (fractal['axisLength'] / 2.0))
-    max_coord = (fractal['centerX'] + (fractal['axisLength'] / 2.0), fractal['centerY'] + (fractal['axisLength'] / 2.0))
+    min_coord = (fractal['centerX'] - (fractal['axisLen'] / 2.0), fractal['centerY'] - (fractal['axisLen'] / 2.0))
+    max_coord = (fractal['centerX'] + (fractal['axisLen'] / 2.0), fractal['centerY'] + (fractal['axisLen'] / 2.0))
 
     bg_color = '#ffffff'
     canvas = Canvas(root, width=canvas_size, height=canvas_size, bg=bg_color)
@@ -59,7 +59,10 @@ def make_picture_of_fractal(fractal, canvas_size, fractalInfo):
         for col in range(canvas_size):
             X = min_coord[0] + col * size
             Y = min_coord[1] + row * size
-            cp = Phoenix.phoenixIter(complex(X, Y),maxIter)
+            if whichFractal == 1:
+                cp = Phoenix.phoenixIter(complex(X, Y),maxIter=102)
+            else:
+                cp = Mandelbrot.mBrotIter(complex(X,Y), maxIter)
             color = Palette.getColor(cp)
             cs.append(color)
         pixels = '{' + ' '.join(cs) + '}'

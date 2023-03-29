@@ -38,9 +38,15 @@ if len(sys.argv) < 2:
 else:
     fractal = sys.argv[1]
 
+fractalList = list(fractalDict.keys())
+fractalParam = fractalDict[fractal]
+
 if fractal in fractalDict:
-    fractalInfo = fractalDict[fractal]
-    ImagePainter.make_picture_of_fractal(fractal, canvasSize, fractalInfo)
+    if fractal in fractalList[:7]:
+        whichFractal = 1
+    else:
+        whichFractal = 2
+    ImagePainter.make_picture_of_fractal(fractalParam, canvasSize, whichFractal)
 else:
     print(f"ERROR: {fractal} is not a valid fractal")
     print("Please choose one of the following:")
