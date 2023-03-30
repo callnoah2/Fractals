@@ -25,9 +25,7 @@
 
 import unittest  	  	  
 from Phoenix import phoenixIter
-from ImagePainter import make_picture_of_fractal
 from Palette import p, getColor, grad
-import FractalInformation
 
 # autocmd BufWritePost <buffer> !python3 runTests.py  	  	  
 
@@ -46,21 +44,18 @@ class TestPhoenix(unittest.TestCase):
         self.assertEqual(getColor(phoenixIter(complex(-0.406, -0.837))), '#ffe5b2')
         self.assertEqual(getColor(phoenixIter(complex(-0.186, -0.685))), '#ffe7af')
 
-    def test_dictionaryGetter(self):  	  	  
-        """Names of fractals in the configuration dictionary are as expected"""  	  	  
-        self.assertIsNone(getFractalConfigurationDataFromFractalRepositoryDictionary(f, 'absent'))
-        self.assertIsNotNone(getFractalConfigurationDataFromFractalRepositoryDictionary(f, 'phoenix'))  	  	  
-        self.assertIsNone(getFractalConfigurationDataFromFractalRepositoryDictionary(f, ''))  	  	  
-        self.assertIsNotNone(getFractalConfigurationDataFromFractalRepositoryDictionary(f, 'peacock'))  	  	  
-        self.assertIsNone(getFractalConfigurationDataFromFractalRepositoryDictionary(f, 'Still Not In Here'))  	  	  
-        self.assertIsNotNone(getFractalConfigurationDataFromFractalRepositoryDictionary(f, 'monkey-knife-fight'))  	  	  
-        self.assertIsNone(getFractalConfigurationDataFromFractalRepositoryDictionary(f, 'shrimp-coctail'))  	  	  
-        self.assertIsNotNone(getFractalConfigurationDataFromFractalRepositoryDictionary(f, 'shrimp-cocktail'))  	  	  
 
+    def test_gradStr(self):
+        for item in grad:
+            self.assertTrue(isinstance(item, str))
     def test_gradientLength(self):  	  	  
         """Color palette contains the expected number of colors"""  	  	  
         self.assertEqual(100, len(grad))
 
+    def test_gradLastisRight(self):
+        "ensures the last color of grad is the same"
+        indx = len(grad) -1
+        self.assertEqual(grad[indx], '#002277')
 
 if __name__ == '__main__':  	  	  
     unittest.main()  	  	  

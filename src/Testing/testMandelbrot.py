@@ -61,6 +61,9 @@ class TestMandelbrot(unittest.TestCase):
         """Palette contains the expected number of colors"""  	  	  
         self.assertEqual(Palette.getLen(), 100)
 
+    def test_lastColorisRight(self):
+        indx = len(Palette.p) - 1
+        self.assertEqual(Palette.p[indx], '#7D387D')
 
 if __name__ == '__main__':  	  	  
     unittest.main()  	  	  
