@@ -23,12 +23,6 @@
 #       or product names of the Licensor, except as required for
 #       reasonable and customary use of the source files.
 
-import sys
-from tkinter import Tk, Canvas, PhotoImage, mainloop
-from time import time
-
-canvasSize = 512
-
 def phoenixIter(z, maxIter):
     """
     Return the iteration count of the Phoenix fractal for the given point in the complex plane
