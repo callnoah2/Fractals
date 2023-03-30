@@ -7,10 +7,14 @@ import Palette
 
 maxIter = 115
 
+def pixSoFar(canvas_size, row):
+    fraction_of_pixels_written_so_far = (canvas_size - row) / canvas_size
+    print(f"[{fraction_of_pixels_written_so_far:>4.0%}" + f"{'=' * int(34 * fraction_of_pixels_written_so_far):<33}]",
+          end="\r", file=sys.stderr)
 def make_picture_of_fractal(fractalParam, canvas_size, whichFractal, fractal):
     """Paint a Fractal image into the TKinter PhotoImage canvas.
     Assumes the image is 640x640 pixels."""
-
+    # Setting up the tk
     root = Tk()
     photo_image = PhotoImage(master=root, width=canvas_size, height=canvas_size)
     min_coord = (fractalParam['centerX'] - (fractalParam['axisLen'] / 2.0), fractalParam['centerY'] - (fractalParam['axisLen'] / 2.0))
@@ -25,6 +29,7 @@ def make_picture_of_fractal(fractalParam, canvas_size, whichFractal, fractal):
     size = abs(max_coord[0] - min_coord[0]) / canvas_size
     start = time.time()
     row = canvas_size
+
     while row in range(canvas_size, 0, -1):
         cs = []
         for col in range(canvas_size):
@@ -40,13 +45,12 @@ def make_picture_of_fractal(fractalParam, canvas_size, whichFractal, fractal):
         pixels = '{' + ' '.join(cs) + '}'
         photo_image.put(pixels, (0, canvas_size - row))
         root.update()
-        fraction_of_pixels_written_so_far = (canvas_size - row) / canvas_size
-        print(f"[{fraction_of_pixels_written_so_far:>4.0%}" + f"{'=' * int(34 * fraction_of_pixels_written_so_far):<33}]", end="\r", file=sys.stderr)
+        pixSoFar(canvas_size, row)
         row -= 1
     # Save Image
     file_name = fractal
     photo_image.write(file_name, format="png")
-
+    # finish messages
     print(f"\nDone in {time.time() - start:.3f} seconds!", file=sys.stderr)
     print("Wrote picture " + file_name + ".png", file=sys.stderr)
     print("Close the image window to exit the program", file=sys.stderr)

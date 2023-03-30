@@ -26,7 +26,7 @@
 import unittest  	  	  
 from Phoenix import phoenixIter
 from ImagePainter import make_picture_of_fractal
-from Palette import p, getColor
+from Palette import p, getColor, grad
 import FractalInformation
 
 # autocmd BufWritePost <buffer> !python3 runTests.py  	  	  
@@ -59,7 +59,7 @@ class TestPhoenix(unittest.TestCase):
 
     def test_gradientLength(self):  	  	  
         """Color palette contains the expected number of colors"""  	  	  
-        self.assertEqual(108, len(grad))  	  	  
+        self.assertEqual(100, len(grad))
 
 
 if __name__ == '__main__':  	  	  
