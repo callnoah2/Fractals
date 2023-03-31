@@ -7,7 +7,9 @@
 |  March 27   | 2 hours    | Working on phase two
 |  March 28   | 3 hours    | Worked on phase two
 |  March 29   | 1 hour     | Finished Phase two
-|  TOTAL      | 12.5 hours | *Your TOTAL should agree with your daily entries*
+|  March 30   | 2 hours    | Polished Phase two, some testing
+|  March 31   | 2 hours    | Finihsed Testing
+|  TOTAL      | 16.5 hours | *Your TOTAL should agree with your daily entries*
 
 
 ## Signature 5.1
