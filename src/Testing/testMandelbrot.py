@@ -38,12 +38,12 @@ class TestMandelbrot(unittest.TestCase):
         """Mandelbrot fractal configuration and algorithm output the expected colors at key locations"""  	  	  
         # test the pixel color...
         maxIter = 115
-        self.assertEqual(Palette.getColor(mBrotIter(complex(0, 0)), maxIter), '#7D387D')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.751, 1.1075)), maxIter), '#E0DC9C')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.2, 1.1075)), maxIter), '#CDDC93')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.75, 0.1075)), maxIter), '#79D078')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.748, 0.1075)), maxIter), '#59C0BD')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.7562500000000001, 0.078125)), maxIter), '#6ECB8A')
+        self.assertEqual(Palette.getColor(mBrotIter(complex(0, 0), maxIter), 1), '#7D387D')
+        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.751, 1.1075), maxIter), 1), '#E0DC9C')
+        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.2, 1.1075), maxIter), 1), '#CDDC93')
+        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.75, 0.1075), maxIter), 1), '#79D078')
+        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.748, 0.1075), maxIter), 1), '#59C0BD')
+        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.7562500000000001, 0.078125), maxIter), 1), '#6ECB8A')
 
 
     def test_pixelsWrittenSoFar(self):  	  	  
@@ -59,7 +59,7 @@ class TestMandelbrot(unittest.TestCase):
 
     def test_palleteLength(self):  	  	  
         """Palette contains the expected number of colors"""  	  	  
-        self.assertEqual(Palette.getLen(), 100)
+        self.assertEqual(Palette.getLen(1), 111)
 
     def test_lastColorisRight(self):
         indx = len(Palette.p) - 1

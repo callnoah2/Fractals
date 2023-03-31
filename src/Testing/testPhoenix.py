@@ -27,22 +27,23 @@ import unittest
 from Phoenix import phoenixIter
 from Palette import p, getColor, grad
 
-# autocmd BufWritePost <buffer> !python3 runTests.py  	  	  
+# autocmd BufWritePost <buffer> !python3 runTests.py
+maxIter = 102
 
 class TestPhoenix(unittest.TestCase):  	  	  
     def test_getColorFromPalette(self):  	  	  
         """Phoenix fractal configuration and algorithm output the expected colors at key locations"""  	  	  
-        self.assertEqual(getColor(phoenixIter(complex(0, 0))), '#ffeca5')
-        self.assertEqual(getColor(phoenixIter(complex(-0.751, 1.1075))), '#ffe4b5')
-        self.assertEqual(getColor(phoenixIter(complex(-0.2, 1.1075))), '#ffe5b2')
-        self.assertEqual(getColor(phoenixIter(complex(-0.750, 0.1075))), '#86ff4a')
-        self.assertEqual(getColor(phoenixIter(complex(-0.748, -0.1075))), '#002277')
-        self.assertEqual(getColor(phoenixIter(complex(-0.75625, 0.078125))), '#002277')
-        self.assertEqual(getColor(phoenixIter(complex(-0.75625, -0.234375))), '#94ff51')
-        self.assertEqual(getColor(phoenixIter(complex(0.33749, -0.625))), '#ffe7af')
-        self.assertEqual(getColor(phoenixIter(complex(-0.678125, -0.46875))), '#002277')
-        self.assertEqual(getColor(phoenixIter(complex(-0.406, -0.837))), '#ffe5b2')
-        self.assertEqual(getColor(phoenixIter(complex(-0.186, -0.685))), '#ffe7af')
+        self.assertEqual(getColor(phoenixIter(complex(0, 0), maxIter), 2), '#ffeca5')
+        self.assertEqual(getColor(phoenixIter(complex(-0.751, 1.1075), maxIter), 2), '#ffe4b5')
+        self.assertEqual(getColor(phoenixIter(complex(-0.2, 1.1075), maxIter), 2), '#ffe5b2')
+        self.assertEqual(getColor(phoenixIter(complex(-0.750, 0.1075), maxIter), 2), '#86ff4a')
+        self.assertEqual(getColor(phoenixIter(complex(-0.748, -0.1075), maxIter), 2), '#002277')
+        self.assertEqual(getColor(phoenixIter(complex(-0.75625, 0.078125), maxIter), 2), '#002277')
+        self.assertEqual(getColor(phoenixIter(complex(-0.75625, -0.234375), maxIter), 2), '#94ff51')
+        self.assertEqual(getColor(phoenixIter(complex(0.33749, -0.625), maxIter), 2), '#ffe7af')
+        self.assertEqual(getColor(phoenixIter(complex(-0.678125, -0.46875), maxIter), 2), '#002277')
+        self.assertEqual(getColor(phoenixIter(complex(-0.406, -0.837), maxIter), 2), '#ffe5b2')
+        self.assertEqual(getColor(phoenixIter(complex(-0.186, -0.685), maxIter), 2), '#ffe7af')
 
 
     def test_gradStr(self):
@@ -50,7 +51,7 @@ class TestPhoenix(unittest.TestCase):
             self.assertTrue(isinstance(item, str))
     def test_gradientLength(self):  	  	  
         """Color palette contains the expected number of colors"""  	  	  
-        self.assertEqual(100, len(grad))
+        self.assertEqual(102, len(grad))
 
     def test_gradLastisRight(self):
         "ensures the last color of grad is the same"

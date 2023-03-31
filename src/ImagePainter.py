@@ -37,7 +37,7 @@ def make_picture_of_fractal(fractalParam, canvas_size, whichFractal, fractal):
             Y = min_coord[1] + row * size
             # whichFractal is 2 for all phoenix fractals and 1 for mandelbrots
             if whichFractal == 2:
-                cp = Phoenix.phoenixIter(complex(X, Y), maxIter=102)
+                cp = Phoenix.phoenixIter(complex(X,Y), maxIter=102)
             else:
                 cp = Mandelbrot.mBrotIter(complex(X,Y), maxIter)
             color = Palette.getColor(cp, whichFractal)
