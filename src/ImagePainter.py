@@ -11,6 +11,7 @@ def pixSoFar(canvas_size, row):
     fraction_of_pixels_written_so_far = (canvas_size - row) / canvas_size
     print(f"[{fraction_of_pixels_written_so_far:>4.0%}" + f"{'=' * int(34 * fraction_of_pixels_written_so_far):<33}]",
           end="\r", file=sys.stderr)
+    return fraction_of_pixels_written_so_far * 100
 def make_picture_of_fractal(fractalParam, canvas_size, whichFractal, fractal):
     """Paint a Fractal image into the TKinter PhotoImage canvas.
     Assumes the image is 640x640 pixels."""

@@ -46,16 +46,15 @@ class TestMandelbrot(unittest.TestCase):
         self.assertEqual(Palette.getColor(mBrotIter(complex(-0.7562500000000001, 0.078125), maxIter), 1), '#6ECB8A')
 
 
-    def test_pixelsWrittenSoFar(self):  	  	  
+    def test_pixelsWrittenSoFar(self):
+        canvasSize = 640
         """Progress bar produces correct output"""  	  	  
-        self.assertEqual(pixSoFar(1, 600), '[100% =================================]')
-        self.assertEqual(pixSoFar(7, 7), '[ 99% =================================]')
-        self.assertEqual(pixSoFar(257, 321), '[ 50% ================                 ]')
-        self.assertEqual(pixSoFar(256, 256), '[ 50% =================                ]')
-        self.assertEqual(pixSoFar(100, 100), '[ 80% ===========================      ]')
-        self.assertEqual(pixSoFar(640, 480), '[-25%                                  ]')
-        self.assertEqual(pixSoFar(137, 1000), '[ 73% ========================         ]')
-        self.assertEqual(pixSoFar(512, 0), '[  0%                                  ]')
+        self.assertEqual(pixSoFar(canvasSize, 0), 100)
+        self.assertEqual(round(pixSoFar(canvasSize, 7)), 99)
+        self.assertEqual(round(pixSoFar(canvasSize, 321)), 50)
+        self.assertEqual(round(pixSoFar(canvasSize, 130)), 80)
+        self.assertEqual(round(pixSoFar(canvasSize, 170)), 73)
+        self.assertEqual(pixSoFar(canvasSize, 640), 0)
 
     def test_palleteLength(self):  	  	  
         """Palette contains the expected number of colors"""  	  	  
