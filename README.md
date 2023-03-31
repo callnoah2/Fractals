@@ -1,3 +1,12 @@
+Important:
+
+Final draft of UML can be found in the testing tag because I changed 
+things in testing.
+
+I also made changes to phase 1 while in phase 2 because I needed to plan 
+more functions than I thought of originally.
+
+
 # CS 1440 Assignment 5: Refactoring & Design Patterns
 
 ## 5.0: Refactoring
