@@ -21,7 +21,7 @@ def make_picture_of_fractal(fractalParam, canvas_size, whichFractal, fractal):
     max_coord = (fractalParam['centerX'] + (fractalParam['axisLen'] / 2.0), fractalParam['centerY'] + (fractalParam['axisLen'] / 2.0))
 
     bg_color = '#ffffff'
-    canvas = Canvas(root, width=canvas_size, height=canvas_size, bg=bg_color)
+    canvas = Canvas(root, width=canvas_size-3, height=canvas_size-3, bg=bg_color)
     canvas.pack()
     canvas.create_image((canvas_size / 2, canvas_size / 2), image=photo_image, state="normal")
     canvas.pack()
@@ -40,7 +40,7 @@ def make_picture_of_fractal(fractalParam, canvas_size, whichFractal, fractal):
                 cp = Phoenix.phoenixIter(complex(X, Y), maxIter=102)
             else:
                 cp = Mandelbrot.mBrotIter(complex(X,Y), maxIter)
-            color = Palette.getColor(cp)
+            color = Palette.getColor(cp, whichFractal)
             cs.append(color)
         pixels = '{' + ' '.join(cs) + '}'
         photo_image.put(pixels, (0, canvas_size - row))

@@ -33,15 +33,15 @@ canvasSize = 512
 if len(sys.argv) < 2:
     print("Please provide the name of the fractal as an argument.")
     for i in fractalDict:
-        print(i)
+        print("\t", i)
     sys.exit(1)
 else:
     fractal = sys.argv[1]
 
 fractalList = list(fractalDict.keys())
-fractalParam = fractalDict[fractal]
 
 if fractal in fractalDict:
+    fractalParam = fractalDict[fractal]
     if fractal in fractalList[:7]:
         whichFractal = 1
     else:

@@ -35,10 +35,20 @@ grad = ['#ffe4b5', '#ffe5b2', '#ffe7af', '#ffe8ac', '#ffeaa8', '#ffeca5',
         '#008bac', '#0083a9', '#007ba6', '#0074a3', '#006da0', '#00669d',
         '#005f9a', '#005996', '#005293', '#004c90', '#00468d', '#00418a',
         '#003b87', '#003684', '#003080', '#002b7d', '#00277a', '#002277']
-def getLen():
-    return len(p)
-def getColor(index):
-    if index >= getLen():
-        return p[getLen()-1]
+def getLen(whichFractal):
+    if whichFractal == 1:
+        return len(p)
     else:
-        return p[index]
+        return len(grad)
+
+## returns p color for all mandelbrots and grad for all phoenix
+def getColor(index, whichFractal):
+    if whichFractal == 2:
+        palette = grad
+    else:
+        palette = p
+
+    if index >= getLen(whichFractal):
+        return palette[getLen(whichFractal)-1]
+    else:
+        return palette[index]
