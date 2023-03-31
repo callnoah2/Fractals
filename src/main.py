@@ -31,7 +31,7 @@ import ImagePainter
 canvasSize = 512
 
 if len(sys.argv) < 2:
-    print("Please provide the name of the fractal as an argument.")
+    print("Please provide the name of a fractal as an argument")
     for i in fractalDict:
         print("\t", i)
     sys.exit(1)
