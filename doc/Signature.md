@@ -14,7 +14,7 @@
 
 ## Signature 5.1
 
-| Date        | Time Spent | Events
-|-------------|------------|--------------------
-| Nocember 27 | 1.5 hours  | Suo genere perveniant ad extremum; Quod quidem nobis non saepe contingit.
-| TOTAL       | 12.5 hours | *Your TOTAL should agree with your daily entries*
+| Date    | Time Spent | Events
+|---------|------------|--------------------
+| April 5 | 2 hours    | Read through all documentation, started phase 0, did starter code quiz
+| TOTAL   | 2 hours    | *Your TOTAL should agree with your daily entries*
