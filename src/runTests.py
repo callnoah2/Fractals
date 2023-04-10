@@ -25,11 +25,11 @@
 
 import unittest  	  	  
 
-from Testing import testMandelbrot, testPhoenix
+from Testing import fractalTests
 
 
 suite = unittest.TestSuite()  	  	  
-tests = [testMandelbrot.TestMandelbrot, testPhoenix.TestPhoenix]  	  	  
+tests = [fractalTests]
 
 
 for test in tests:  	  	  
