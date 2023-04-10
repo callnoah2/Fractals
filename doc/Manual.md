@@ -1,20 +1,20 @@
 # User Manual
 
 ## To run the code:
-* in the command line, run main.py [fractal] [Palette]
+* in the command line, run main.py [fractal] [palette]
 * fractal and palette arguments are optional
 * Without them, program will give a default fractal.
 
-# Fractal Options
+## Fractal Options
 * To see which options are availible to use, run "ls data" in the terminal command line.
 * If no options appear, only the default fractal will be availible
 
-# Palette Options
+## Palette Options
 * slowPal
 * crazyPal
 
 ## What you will see:
-* A new window should appear and the fractal shoudld start to print.
+* A new window should appear and the fractal should start to print.
 * As it is printing, you will see the progress bar of the compleation.
 * A png image will automatically save to your computer
 
@@ -26,6 +26,7 @@
     * misspelled fractal name
     * non-existant fractal
     * capitalized fractal name
-    * empty fractal name
-* any of these will cause the program to prompt the user to enter a valid fractal name with options
+* any of these will cause the program to prompt the user to enter a valid fractal name
+* Some fractals do not have complete configuration data and will not print the fractal.
+
 
