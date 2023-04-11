@@ -24,17 +24,19 @@
 #       reasonable and customary use of the source files.
 
 
-def mBrotIter(c, max_iterations):
-    """
-    Given a coordinate in the complex plane, returns the iteration count of the Mandelbrot function for that point.
+import Fractal
 
-    The iteration count corresponds to the number of times the function z = z^2 + c can be iteratively applied to the
-    complex number z = 0 before the absolute value of z becomes greater than 2 or the maximum number of iterations
-    is reached, whichever comes first.
-    """
-    z = complex(0,0)
-    for i in range(max_iterations):
-        z = z*z + c
-        if abs(z) > 2:
-            return i
-    return max_iterations
+
+class Newton(Fractal):
+    def __init__(self, c, z, maxIter):
+        super().__init__(c, z, maxIter)
+
+    def count(self, c, maxIter):
+
+        z = complex(0, 0)
+        for i in range(maxIter):
+            z = z * z + c
+            if abs(z) > 2:
+                return i
+        return maxIter
+

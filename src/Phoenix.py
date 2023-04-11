@@ -23,23 +23,29 @@
 #       or product names of the Licensor, except as required for
 #       reasonable and customary use of the source files.
 
-def phoenixIter(z, maxIter):
-    """
-    Return the iteration count of the Phoenix fractal for the given point in the complex plane
-    """
-    Julia = complex(0.5667, 0.0)
-    pheonix = complex(-0.5, 0.0)
+import Fractal
 
-    zFlipped = complex(z.imag, z.real)
-    zPrev = 0+0j
-    z = zFlipped
 
-    for i in range(maxIter):
-        zSave = z
-        z = z * z + Julia + (pheonix * zPrev)
-        zPrev = zSave
+class Mandelbrot3(Fractal):
+    def __init__(self, c, z, maxIter):
+        super().__init__(c, z, maxIter)
 
-        if abs(z) > 2:
-            return i
+    def count(self, maxIter, z):
 
-    return maxIter
+
+        Julia = complex(0.5667, 0.0)
+        pheonix = complex(-0.5, 0.0)
+
+        zFlipped = complex(z.imag, z.real)
+        zPrev = 0+0j
+        z = zFlipped
+
+        for i in range(maxIter):
+            zSave = z
+            z = z * z + Julia + (pheonix * zPrev)
+            zPrev = zSave
+
+            if abs(z) > 2:
+                return i
+
+        return maxIter
