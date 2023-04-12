@@ -1,4 +1,4 @@
-import Fractal
+from Fractal import Fractal
 
 class BurningshipFrac(Fractal):
     def __init__(self, c, z, maxIter):

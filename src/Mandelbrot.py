@@ -24,7 +24,7 @@
 #       reasonable and customary use of the source files.
 
 
-import Fractal
+from Fractal import Fractal
 
 
 class MandelbrotFrac(Fractal):

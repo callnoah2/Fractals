@@ -1,4 +1,4 @@
-import Fractal
+from Fractal import Fractal
 
 
 class Mandelbrot3Frac(Fractal):

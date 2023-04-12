@@ -23,7 +23,7 @@
 #       or product names of the Licensor, except as required for
 #       reasonable and customary use of the source files.
 
-import Fractal
+from Fractal import Fractal
 
 
 class PhoenixFrac(Fractal):
