@@ -26,8 +26,10 @@
 import sys
 import FractalParser
 import FractalFactory
+import PaletteFactory
 
 file = "default"
+palette = "wild"
 if len(sys.argv) == 3:
     file = sys.argv[1]
     palette = sys.argv[2]
@@ -36,5 +38,6 @@ elif len(sys.argv) == 2:
 
 FractalInfo = FractalParser.parse(file)
 fractal = FractalFactory.makeFractal(FractalInfo)
+thisPalette = PaletteFactory.makePalette(palette, FractalInfo)
 
 
