@@ -16,12 +16,14 @@ def parse(file):
     config = {}
 
     with open(file, 'r') as f:
-        for line_number, line in enumerate(f):
+        for lineNumber, line in enumerate(f):
+            if line.startswith("#"):
+                continue
             key, value = map(str.strip, line.lower().split(':'))
 
             # Check if the key is valid
             if key not in requiredFields and key not in optionalFields:
-                raise RuntimeError(f"Invalid key '{key}' on line {line_number + 1}")
+                raise RuntimeError(f"Invalid key '{key}' on line {lineNumber + 1}")
 
             # Add the key-value pair to the config dictionary
             config[key] = value

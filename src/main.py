@@ -24,33 +24,17 @@
 
 
 import sys
-from FractalInformation import fractalDict
-import ImagePainter
+import FractalParser
+import FractalFactory
 
+file = "default"
+if len(sys.argv) == 3:
+    file = sys.argv[1]
+    palette = sys.argv[2]
+elif len(sys.argv) == 2:
+    file = sys.argv[1]
 
-canvasSize = 512
+FractalInfo = FractalParser.parse(file)
+fractal = FractalFactory.makeFractal(FractalInfo)
 
-if len(sys.argv) < 2:
-    print("Please provide the name of a fractal as an argument")
-    for i in fractalDict:
-        print("\t", i)
-    sys.exit(1)
-else:
-    fractal = sys.argv[1]
-
-fractalList = list(fractalDict.keys())
-
-if fractal in fractalDict:
-    fractalParam = fractalDict[fractal]
-    if fractal in fractalList[:7]:
-        whichFractal = 1
-    else:
-        whichFractal = 2
-    ImagePainter.make_picture_of_fractal(fractalParam, canvasSize, whichFractal, fractal)
-else:
-    print(f"ERROR: {fractal} is not a valid fractal")
-    print("Please choose one of the following:")
-    for f in fractalDict:
-        print(f"\t{f}")
-    sys.exit(1)
 
