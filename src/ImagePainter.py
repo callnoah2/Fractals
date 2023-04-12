@@ -40,7 +40,6 @@ def make_picture_of_fractal(fractalInfo, Fractal, paletteName, FractalName):
         for col in range(canvas_size):
             X = min_coord[0] + col * size
             Y = min_coord[1] + row * size
-            # whichFractal is 2 for all phoenix fractals and 1 for mandelbrots
 
             cp = Fractal.count(complex(X,Y), maxIter)
             color = palette.getColor(cp)
