@@ -26,10 +26,10 @@
 import sys
 import FractalParser
 import FractalFactory
-import PaletteFactory
+import ImagePainter
 
 file = "default"
-palette = "wild"
+paletteName = "wild"
 if len(sys.argv) == 3:
     file = sys.argv[1]
     palette = sys.argv[2]
@@ -38,6 +38,6 @@ elif len(sys.argv) == 2:
 
 FractalInfo = FractalParser.parse(file)
 fractal = FractalFactory.makeFractal(FractalInfo)
-thisPalette = PaletteFactory.makePalette(palette, FractalInfo)
+ImagePainter.make_picture_of_fractal()
 
 
