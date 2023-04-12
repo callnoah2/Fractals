@@ -1,6 +1,6 @@
-import Palette
+from Palette import Palette
 from colour import Color
-class crazyPal(Palette):
+class CrazyPal(Palette):
     def __init__(self):
         super().__init__()
 

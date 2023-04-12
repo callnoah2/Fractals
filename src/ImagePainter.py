@@ -14,7 +14,7 @@ def make_picture_of_fractal(fractalInfo, Fractal, paletteName, FractalName):
     # Setting up the tk
     centerX = fractalInfo['centerX']
     centerY = fractalInfo['centerY']
-    axisLength = fractalInfo['axisLength']
+    axisLen = fractalInfo['axisLength']
     canvas_size = fractalInfo['pixels']
     maxIter = fractalInfo['iterations']
     creal = fractalInfo['creal']
@@ -22,8 +22,8 @@ def make_picture_of_fractal(fractalInfo, Fractal, paletteName, FractalName):
     palette = PaletteFactory.makePalette(paletteName, maxIter)
     root = Tk()
     photo_image = PhotoImage(master=root, width=canvas_size, height=canvas_size)
-    min_coord = (centerX - axisLen / 2.0), centerY - axisLen / 2.0))
-    max_coord = (centerX + axisLen / 2.0), centerY + axisLen / 2.0))
+    min_coord = (centerX - axisLen / 2.0), (centerY - axisLen / 2.0)
+    max_coord = (centerX + axisLen / 2.0), (centerY + axisLen / 2.0)
 
     bg_color = '#ffffff'
     canvas = Canvas(root, width=canvas_size-3, height=canvas_size-3, bg=bg_color)

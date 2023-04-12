@@ -1,13 +1,14 @@
-import wild, crazyPal, Palette
+import Palette
+from wild import wildPal
+from crazyPal import CrazyPal
 def makePalette(paletteName, fractalInfo):
     palettes = {
-        "wild": wild,
-        "crazyPal": crazyPal
+        "wildPal": wildPal(),
+        "crazyPal": CrazyPal()
     }
 
-
     if paletteName in palettes:
-        palette = paletteName.makePal()
-        return palettes[paletteName]()
+        palette = palettes[paletteName].makePal(fractalInfo.maxIterations)
+        return palette
     else:
         raise NotImplementedError("Invalid palette requested")

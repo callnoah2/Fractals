@@ -1,6 +1,7 @@
-import Palette
+from Palette import Palette
 from colour import Color
-class wild(Palette):
+
+class wildPal(Palette):
     def __init__(self):
         super().__init__()
 
