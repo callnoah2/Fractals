@@ -1,9 +1,7 @@
 from tkinter import Tk, Canvas, PhotoImage, mainloop
 import time
-import Mandelbrot
-import Phoenix
+import PaletteFactory
 import sys
-import Palette
 
 maxIter = 115
 
@@ -12,11 +10,11 @@ def pixSoFar(canvas_size, row):
     print(f"[{fraction_of_pixels_written_so_far:>4.0%}" + f"{'=' * int(34 * fraction_of_pixels_written_so_far):<33}]",
           end="\r", file=sys.stderr)
     return fraction_of_pixels_written_so_far * 100
-def make_picture_of_fractal(fractalParam, canvas_size, whichFractal, fractal):
-    """Paint a Fractal image into the TKinter PhotoImage canvas.
-    Assumes the image is 640x640 pixels."""
+def make_picture_of_fractal(FractalInfo, Fractal, paletteName):
+    palette = PaletteFactory.makePalette(paletteName, FractalInfo)
     # Setting up the tk
     root = Tk()
+
     photo_image = PhotoImage(master=root, width=canvas_size, height=canvas_size)
     min_coord = (fractalParam['centerX'] - (fractalParam['axisLen'] / 2.0), fractalParam['centerY'] - (fractalParam['axisLen'] / 2.0))
     max_coord = (fractalParam['centerX'] + (fractalParam['axisLen'] / 2.0), fractalParam['centerY'] + (fractalParam['axisLen'] / 2.0))

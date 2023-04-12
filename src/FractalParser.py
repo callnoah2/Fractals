@@ -1,11 +1,11 @@
-# def safe_convert(obj, new_type):
-#     if not type(new_type) == type:
-#         raise ValueError(f"Second argument must be a valid Python type")
-#     try:
-#         return new_type(obj)
-#     except ValueError:
-#         return None
-#
+def safe_convert(obj, new_type):
+    if not type(new_type) == type:
+        raise ValueError(f"Second argument must be a valid Python type")
+    try:
+        return new_type(obj)
+    except ValueError:
+        return None
+
 def parse(file):
     if not file:
         return {}
@@ -39,11 +39,11 @@ def parse(file):
 
     # Check that the required fields are of the correct type
     try:
-        config['centerx'] = float(config['centerx'])
-        config['centery'] = float(config['centery'])
-        config['axislength'] = float(config['axislength'])
-        config['pixels'] = int(config['pixels'])
-        config['iterations'] = int(config['iterations'])
+        config['centerx'] = safe_convert(config['centerx'], float)
+        config['centery'] = safe_convert(config['centery'], float)
+        config['axislength'] = safe_convert(config['axislength'], float)
+        config['pixels'] = safe_convert(config['pixels'], int)
+        config['iterations'] = safe_convert(config['iterations'], int)
     except ValueError as e:
         raise RuntimeError(str(e))
 
@@ -53,8 +53,8 @@ def parse(file):
             raise RuntimeError(f"creal and cimag are only valid for phoenix, julia, and burningshipjulia")
 
         try:
-            config['creal'] = float(config['creal'])
-            config['cimag'] = float(config['cimag'])
+            config['creal'] = safe_convert(config['creal'], float)
+            config['cimag'] = safe_convert(config['cimag'], float)
         except ValueError as e:
             raise RuntimeError(str(e))
 
