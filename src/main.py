@@ -38,6 +38,6 @@ elif len(sys.argv) == 2:
 
 FractalInfo = FractalParser.parse(file)
 fractal = FractalFactory.makeFractal(FractalInfo)
-ImagePainter.make_picture_of_fractal()
+ImagePainter.make_picture_of_fractal(FractalInfo, fractal, paletteName, file)
 
 
