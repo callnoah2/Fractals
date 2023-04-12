@@ -1,26 +1,34 @@
 def makeFractal(fractalInfo):
-    import Fractal, Julia, Burningship, Mandelbrot, Mandelbrot3, Mandelbrot4, Newton, Spider, Phoenix
+    import Fractal
+    from Julia import JuliaFrac
+    from Burningship import BurningshipFrac
+    from Mandelbrot import MandelbrotFrac
+    from Mandelbrot3 import Mandelbrot3Frac
+    from Mandelbrot4 import Mandelbrot4Frac
+    from Newton import NewtonFrac
+    from Spider import SpiderFrac
+    from Phoenix import PhoenixFrac
 
     type = fractalInfo['type']
 
     if type == 'mandelbrot':
-        fractal = Mandelbrot
+        fractal = MandelbrotFrac
     elif type == 'phoenix':
-        fractal = Phoenix
+        fractal = PhoenixFrac
     elif type == 'burningshipjulia':
-        fractal = Burningship
+        fractal = BurningshipFrac
     elif type == 'burningship':
-        fractal = Burningship
+        fractal = BurningshipFrac
     elif type == 'spider':
-        fractal = Spider
+        fractal = SpiderFrac
     elif type == 'julia':
-        fractal = Julia
+        fractal = JuliaFrac
     elif type == 'mandelbrot3':
-        fractal = Mandelbrot3
+        fractal = Mandelbrot3Frac
     elif type == 'mandelbrot4':
-        fractal = Mandelbrot4
+        fractal = Mandelbrot4Frac
     elif type == 'newton':
-        fractal = Newton
+        fractal = NewtonFrac
     else:
         raise ValueError(f"Unsupported fractal type: {type}")
 

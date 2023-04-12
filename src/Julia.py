@@ -1,6 +1,6 @@
-import Fractal
+from Fractal import Fractal
 
-class Julia(Fractal):
+class JuliaFrac(Fractal):
     def __init__(self, c, z, maxIter):
         super().__init__(c, z, maxIter)
 

@@ -1,6 +1,6 @@
 import Fractal
 
-class Burningship(Fractal):
+class BurningshipFrac(Fractal):
     def __init__(self, c, z, maxIter):
         super().__init__(c, z, maxIter)
 

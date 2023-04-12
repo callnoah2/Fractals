@@ -1,5 +1,5 @@
 import Fractal
-class Newton(Fractal):
+class NewtonFrac(Fractal):
     def __init__(self, c, z, maxIter):
         super().__init__(c, z, maxIter)
 

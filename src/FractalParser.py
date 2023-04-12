@@ -17,6 +17,9 @@ def parse(file):
 
     with open(file, 'r') as f:
         for lineNumber, line in enumerate(f):
+            # Skip empty lines
+            if not line.strip():
+                continue
             if line.startswith("#"):
                 continue
             key, value = map(str.strip, line.lower().split(':'))

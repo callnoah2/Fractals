@@ -26,7 +26,7 @@
 import Fractal
 
 
-class Mandelbrot3(Fractal):
+class PhoenixFrac(Fractal):
     def __init__(self, c, z, maxIter):
         super().__init__(c, z, maxIter)
 

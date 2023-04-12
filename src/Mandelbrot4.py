@@ -1,7 +1,7 @@
 import Fractal
 
 
-class Mandelbrot4(Fractal):
+class Mandelbrot4Frac(Fractal):
     def __init__(self, c, z, maxIter):
         super().__init__(c, z, maxIter)
 
