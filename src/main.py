@@ -29,7 +29,7 @@ import FractalFactory
 import ImagePainter
 
 file = "default"
-paletteName = "wild"
+paletteName = "wildPal"
 if len(sys.argv) == 3:
     file = sys.argv[1]
     palette = sys.argv[2]

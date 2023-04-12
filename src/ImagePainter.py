@@ -12,13 +12,13 @@ def pixSoFar(canvas_size, row):
 def make_picture_of_fractal(fractalInfo, Fractal, paletteName, FractalName):
 
     # Setting up the tk
-    centerX = fractalInfo['centerX']
-    centerY = fractalInfo['centerY']
-    axisLen = fractalInfo['axisLength']
+    centerX = fractalInfo['centerx']
+    centerY = fractalInfo['centery']
+    axisLen = fractalInfo['axislength']
     canvas_size = fractalInfo['pixels']
     maxIter = fractalInfo['iterations']
-    creal = fractalInfo['creal']
-    cimag = fractalInfo['cimag']
+    # creal = fractalInfo['creal']
+    # cimag = fractalInfo['cimag']
     palette = PaletteFactory.makePalette(paletteName, maxIter)
     root = Tk()
     photo_image = PhotoImage(master=root, width=canvas_size, height=canvas_size)
