@@ -29,9 +29,9 @@ from Testing import fractalTests
 
 
 suite = unittest.TestSuite()  	  	  
-tests = [fractalTests]
+tests = [fractalTests.TestFractal]
 
 
-for test in tests:  	  	  
-    suite.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(test))  	  	  
+for test in tests:
+    suite.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(test))
 unittest.TextTestRunner(verbosity=2).run(suite)  	  	  
