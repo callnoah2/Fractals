@@ -5,7 +5,9 @@ def makePalette(paletteName, fractalInfo):
         "crazyPal": crazyPal
     }
 
+
     if paletteName in palettes:
+        palette = paletteName.makePal()
         return palettes[paletteName]()
     else:
         raise NotImplementedError("Invalid palette requested")
