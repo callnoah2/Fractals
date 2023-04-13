@@ -10,6 +10,8 @@ class NewtonFrac(Fractal):
         z = complex(0, 0)
         for i in range(maxIter):
             dz = 3 * z ** 2
+            if dz == 0:
+                dz = 1
             z = z - (z ** 3 - 1) / dz
 
             for root in ROOTS:
