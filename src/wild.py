@@ -29,3 +29,6 @@ class wildPal(Palette):
         end = "pink"
         palette += self.paletteEquation(palette, start, end, maxIter)
         return palette
+
+    def getColor(self, palette, count):
+        return palette[count]

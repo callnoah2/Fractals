@@ -37,7 +37,7 @@ def parse(file):
         raise RuntimeError(f"Missing fields: {', '.join(missingFields)}")
 
     # Check that the type is valid
-    if config['type'] not in {'mandelbrot', 'phoenix', 'julia', 'burningshipjulia'}:
+    if config['type'] not in {'mandelbrot', 'phoenix', 'julia', 'burningshipjulia', "newton", "mandelbrot3", "mandelbrot4", "spider", "buriningship"}:
         raise RuntimeError(f"Invalid type '{config['type']}'")
 
     # Check that the required fields are of the correct type

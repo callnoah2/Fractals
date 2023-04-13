@@ -32,7 +32,7 @@ file = "default"
 paletteName = "wildPal"
 if len(sys.argv) == 3:
     file = sys.argv[1]
-    palette = sys.argv[2]
+    paletteName = sys.argv[2]
 elif len(sys.argv) == 2:
     file = sys.argv[1]
 

@@ -2,7 +2,7 @@ from tkinter import Tk, Canvas, PhotoImage, mainloop
 import time
 import PaletteFactory
 import sys
-
+from Palette import Palette
 
 def pixSoFar(canvas_size, row):
     fraction_of_pixels_written_so_far = (canvas_size - row) / canvas_size
@@ -19,7 +19,8 @@ def make_picture_of_fractal(fractalInfo, Fractal, paletteName, FractalName):
     maxIter = fractalInfo['iterations']
     # creal = fractalInfo['creal']
     # cimag = fractalInfo['cimag']
-    palette = PaletteFactory.makePalette(paletteName, maxIter)
+    Palette = PaletteFactory.makePalette(paletteName)
+    colorPalette = Palette.makePal(maxIter)
     root = Tk()
     photo_image = PhotoImage(master=root, width=canvas_size, height=canvas_size)
     min_coord = (centerX - axisLen / 2.0), (centerY - axisLen / 2.0)
@@ -42,7 +43,7 @@ def make_picture_of_fractal(fractalInfo, Fractal, paletteName, FractalName):
             Y = min_coord[1] + row * size
 
             cp = Fractal.count(Fractal, (complex(X,Y)), maxIter)
-            color = palette.getColor(cp)
+            color = Palette.getColor(colorPalette, cp)
             cs.append(color)
         pixels = '{' + ' '.join(cs) + '}'
         photo_image.put(pixels, (0, canvas_size - row))
