@@ -1,7 +1,7 @@
 from Fractal import Fractal
 class NewtonFrac(Fractal):
-    def __init__(self, c, z, maxIter):
-        super().__init__(c, z, maxIter)
+    def __init__(self, c, maxIter):
+        super().__init__(c, maxIter)
 
     def count(self, c, maxIter):
         EPSILON = 0.000001

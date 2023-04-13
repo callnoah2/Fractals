@@ -27,8 +27,8 @@ from Fractal import Fractal
 
 
 class PhoenixFrac(Fractal):
-    def __init__(self, c, z, maxIter):
-        super().__init__(c, z, maxIter)
+    def __init__(self, z, maxIter):
+        super().__init__(z, maxIter)
 
     def count(self, maxIter, z):
 

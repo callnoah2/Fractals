@@ -1,6 +1,5 @@
 class Fractal:
-    def __init__(self, c, z, maxIter):
-        self.c = c
+    def __init__(self, z, maxIter):
         self.z = z
         self.maxIter = maxIter
 

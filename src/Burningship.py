@@ -1,8 +1,8 @@
 from Fractal import Fractal
 
 class BurningshipFrac(Fractal):
-    def __init__(self, c, z, maxIter):
-        super().__init__(c, z, maxIter)
+    def __init__(self, c, maxIter):
+        super().__init__(c, maxIter)
 
     def count(self, c, maxIter):
         z = complex(0, 0)
