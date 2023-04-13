@@ -1,41 +1,61 @@
 import unittest
 import FractalParser
+from Fractal import Fractal
+from Mandelbrot import MandelbrotFrac
+from Phoenix import PhoenixFrac
+from Spider import SpiderFrac
+from Julia import JuliaFrac
+from Newton import NewtonFrac
 parse = FractalParser.parse
 class TestFractal(unittest.TestCase):
     def test_Phoenix(self):
         """Phoenix fractal configuration and algorithm output the expected colors at key locations"""
-        self.assertEqual(getColor(phoenixIter(complex(0, 0), maxIter), 2), '#ffeca5')
-        self.assertEqual(getColor(phoenixIter(complex(-0.751, 1.1075), maxIter), 2), '#ffe4b5')
-        self.assertEqual(getColor(phoenixIter(complex(-0.2, 1.1075), maxIter), 2), '#ffe5b2')
-        self.assertEqual(getColor(phoenixIter(complex(-0.750, 0.1075), maxIter), 2), '#86ff4a')
-        self.assertEqual(getColor(phoenixIter(complex(-0.748, -0.1075), maxIter), 2), '#002277')
+        Fractal = MandelbrotFrac
+        maxIter = 65
+        self.assertEqual(Fractal.count(None, complex(0, 0), maxIter), 65)
+        self.assertEqual(Fractal.count(None, complex(-0.751, 1.1075), maxIter), 2)
+        self.assertEqual(Fractal.count(None, complex(-0.2, 1.1075), maxIter), 9)
+        self.assertEqual(Fractal.count(None, complex(-0.750, 0.1075), maxIter), 30)
+        self.assertEqual(Fractal.count(None, complex(-0.748, -0.1075), maxIter), 56)
 
     def test_Mandelbrot(self):
         """Mandelbrot fractal configuration and algorithm output the expected colors at key locations"""
         # test the pixel color...
+        Fractal = PhoenixFrac
         maxIter = 115
-        self.assertEqual(Palette.getColor(mBrotIter(complex(0, 0), maxIter), 1), '#7D387D')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.751, 1.1075), maxIter), 1), '#E0DC9C')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.2, 1.1075), maxIter), 1), '#CDDC93')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.75, 0.1075), maxIter), 1), '#79D078')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.748, 0.1075), maxIter), 1), '#59C0BD')
-        self.assertEqual(Palette.getColor(mBrotIter(complex(-0.7562500000000001, 0.078125), maxIter), 1), '#6ECB8A')
+        self.assertEqual(Fractal.count(None, complex(0, 0), maxIter), 5)
+        self.assertEqual(Fractal.count(None, complex(-0.751, 1.1075), maxIter), 0)
+        self.assertEqual(Fractal.count(None, complex(-0.2, 1.1075), maxIter), 1)
+        self.assertEqual(Fractal.count(None, complex(-0.750, 0.1075), maxIter), 34)
+        self.assertEqual(Fractal.count(None, complex(-0.748, -0.1075), maxIter), 115)
 
     def test_SpiderColor(self):
-        self.assertEqual(Palette.getColor(spider(complex(0, 0), maxIter), 1), '#7D387D')
-        self.assertEqual(Palette.getColor(spider(complex(-0.751, 1.1075), maxIter), 1), '#E0DC9C')
-        self.assertEqual(Palette.getColor(spider(complex(-0.2, 1.1075), maxIter), 1), '#CDDC93')
-        self.assertEqual(Palette.getColor(spider(complex(-0.75, 0.1075), maxIter), 1), '#79D078')
-        self.assertEqual(Palette.getColor(spider(complex(-0.748, 0.1075), maxIter), 1), '#59C0BD')
-        self.assertEqual(Palette.getColor(spider(complex(-0.7562500000000001, 0.078125), maxIter), 1), '#6ECB8A')
+        Fractal = SpiderFrac
+        maxIter = 115
+        self.assertEqual(Fractal.count(None, complex(0, 0), maxIter), 115)
+        self.assertEqual(Fractal.count(None, complex(-0.751, 1.1075), maxIter), 3)
+        self.assertEqual(Fractal.count(None, complex(-0.2, 1.1075), maxIter), 3)
+        self.assertEqual(Fractal.count(None, complex(-0.750, 0.1075), maxIter), 115)
+        self.assertEqual(Fractal.count(None, complex(-0.748, -0.1075), maxIter), 115)
+
 
     def test_Julia(self):
-        self.assertEqual(Palette.getColor(Julia(complex(0, 0), maxIter), 1), '#7D387D')
-        self.assertEqual(Palette.getColor(Julia(complex(-0.751, 1.1075), maxIter), 1), '#E0DC9C')
-        self.assertEqual(Palette.getColor(Julia(complex(-0.2, 1.1075), maxIter), 1), '#CDDC93')
-        self.assertEqual(Palette.getColor(Julia(complex(-0.75, 0.1075), maxIter), 1), '#79D078')
-        self.assertEqual(Palette.getColor(Julia(complex(-0.748, 0.1075), maxIter), 1), '#59C0BD')
-        self.assertEqual(Palette.getColor(Julia(complex(-0.7562500000000001, 0.078125), maxIter), 1), '#6ECB8A')
+        Fractal = JuliaFrac
+        maxIter = 115
+        self.assertEqual(Fractal.count(None, complex(0, 0), maxIter), 115)
+        self.assertEqual(Fractal.count(None, complex(-0.751, 1.1075), maxIter), 1)
+        self.assertEqual(Fractal.count(None, complex(-0.2, 1.1075), maxIter), 2)
+        self.assertEqual(Fractal.count(None, complex(-0.750, 0.1075), maxIter), 115)
+        self.assertEqual(Fractal.count(None, complex(-0.748, -0.1075), maxIter), 115)
+
+    def test_Newton(self):
+        Fractal = NewtonFrac
+        maxIter = 115
+        self.assertEqual(Fractal.count(None, complex(0, 0), maxIter), 0)
+        self.assertEqual(Fractal.count(None, complex(-0.751, 1.1075), maxIter), 3)
+        self.assertEqual(Fractal.count(None, complex(-0.2, 1.1075), maxIter), 3)
+        self.assertEqual(Fractal.count(None, complex(-0.750, 0.1075), maxIter), 10)
+        self.assertEqual(Fractal.count(None, complex(-0.748, -0.1075), maxIter), 9)
 
     def test_badInput(self):
         self.assertEqual(parse(data/invalid.frac), RuntimeError)
