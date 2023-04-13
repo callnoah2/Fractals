@@ -52,7 +52,7 @@ def make_picture_of_fractal(fractalInfo, Fractal, paletteName, FractalName):
         row -= 1
     # Save Image
     file_name = FractalName
-    photo_image.write(file_name, format="png")
+    photo_image.write(file_name.strip('.frac'), format="png")
     # finish messages
     print(f"\nDone in {time.time() - start:.3f} seconds!", file=sys.stderr)
     print("Wrote picture " + file_name + ".png", file=sys.stderr)

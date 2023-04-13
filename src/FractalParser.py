@@ -37,7 +37,7 @@ def parse(file):
         raise RuntimeError(f"Missing fields: {', '.join(missingFields)}")
 
     # Check that the type is valid
-    if config['type'] not in {'mandelbrot', 'phoenix', 'julia', 'burningshipjulia', "newton", "mandelbrot3", "mandelbrot4", "spider", "buriningship"}:
+    if config['type'] not in {'mandelbrot', 'phoenix', 'julia', 'burningshipjulia', "newton", "mandelbrot3", "mandelbrot4", "spider", "burningship"}:
         raise RuntimeError(f"Invalid type '{config['type']}'")
 
     # Check that the required fields are of the correct type
@@ -51,20 +51,20 @@ def parse(file):
         raise RuntimeError(str(e))
 
     # Check that the optional fields are of the correct type, if present
-    if 'creal' in config or 'cimag' in config:
-        if config['type'] not in {'phoenix', 'julia', 'burningshipjulia'}:
-            raise RuntimeError(f"creal and cimag are only valid for phoenix, julia, and burningshipjulia")
+    # if 'creal' in config or 'cimag' in config:
+    #     if config['type'] not in {'phoenix', 'julia', 'burningshipjulia'}:
+    #         raise RuntimeError(f"creal and cimag are only valid for phoenix, julia, and burningshipjulia")
 
-        try:
-            config['creal'] = safe_convert(config['creal'], float)
-            config['cimag'] = safe_convert(config['cimag'], float)
-        except ValueError as e:
-            raise RuntimeError(str(e))
+        # try:
+        #     config['creal'] = safe_convert(config['creal'], float)
+        #     config['cimag'] = safe_convert(config['cimag'], float)
+        # except ValueError as e:
+        #     raise RuntimeError(str(e))
 
     if 'parameter' in config:
         try:
             complex(config['parameter'])
         except ValueError as e:
             raise RuntimeError(str(e))
-
+    f.close()
     return config

@@ -16,17 +16,17 @@ class wildPal(Palette):
     def makePal(self, maxIter):
         palette = []
         start = "green"
-        end = "red"
+        end = "blue"
         maxIter = int(maxIter/4) + 2
         palette += self.paletteEquation(palette, start, end, maxIter)
         start = end
-        end = "blue"
+        end = "purple"
         palette += self.paletteEquation(palette, start, end, maxIter)
         start = end
-        end = "yellow"
+        end = "red"
         palette += self.paletteEquation(palette, start, end, maxIter)
         start = end
-        end = "pink"
+        end = "orange"
         palette += self.paletteEquation(palette, start, end, maxIter)
         return palette
 
