@@ -16,7 +16,7 @@ class CrazyPal(Palette):
         palette = []
         start = "blue"
         end = "gold"
-        maxIter = int(maxIter/23)
+        maxIter = int(maxIter/20)
         palette += self.paletteEquation(palette, start, end, maxIter)
         start = end
         end = "red"
