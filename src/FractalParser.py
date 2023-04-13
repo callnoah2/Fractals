@@ -20,8 +20,12 @@ def parse(file):
             # Skip empty lines
             if not line.strip():
                 continue
-            if line.startswith("#"):
+            elif line.startswith("#"):
                 continue
+            elif line.startswith("p"):
+                continue
+            elif ':' not in line:
+                raise RuntimeError(f"No ':' found in line {lineNumber + 1}")
             key, value = map(str.strip, line.lower().split(':'))
 
             # Check if the key is valid
@@ -50,16 +54,6 @@ def parse(file):
     except ValueError as e:
         raise RuntimeError(str(e))
 
-    # Check that the optional fields are of the correct type, if present
-    # if 'creal' in config or 'cimag' in config:
-    #     if config['type'] not in {'phoenix', 'julia', 'burningshipjulia'}:
-    #         raise RuntimeError(f"creal and cimag are only valid for phoenix, julia, and burningshipjulia")
-
-        # try:
-        #     config['creal'] = safe_convert(config['creal'], float)
-        #     config['cimag'] = safe_convert(config['cimag'], float)
-        # except ValueError as e:
-        #     raise RuntimeError(str(e))
 
     if 'parameter' in config:
         try:
