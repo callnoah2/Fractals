@@ -21,6 +21,7 @@ def make_picture_of_fractal(fractalInfo, Fractal, paletteName, FractalName):
     # cimag = fractalInfo['cimag']
     Palette = PaletteFactory.makePalette(paletteName)
     colorPalette = Palette.makePal(maxIter)
+    print(len(colorPalette), maxIter)
     root = Tk()
     photo_image = PhotoImage(master=root, width=canvas_size, height=canvas_size)
     min_coord = (centerX - axisLen / 2.0), (centerY - axisLen / 2.0)

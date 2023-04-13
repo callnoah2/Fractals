@@ -2,10 +2,12 @@ import Palette
 from Palette import Palette
 from wild import wildPal
 from crazyPal import CrazyPal
+from awesome import awesomePal
 def makePalette(paletteName):
     palettes = {
         "wildPal": wildPal(),
-        "crazyPal": CrazyPal()
+        "crazyPal": CrazyPal(),
+        "awesome": awesomePal()
     }
 
     if paletteName in palettes:

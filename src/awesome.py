@@ -1,7 +1,7 @@
 from Palette import Palette
 from colour import Color
 
-class wildPal(Palette):
+class awesomePal(Palette):
     def __init__(self):
         super().__init__()
 
@@ -15,18 +15,18 @@ class wildPal(Palette):
 
     def makePal(self, maxIter):
         palette = []
-        start = "green"
-        end = "red"
+        start = "blue"
+        end = "purple"
         maxIter = int(maxIter/20)
         palette += self.paletteEquation(palette, start, end, maxIter)
         start = end
-        end = "purple"
+        end = "yellow"
         palette += self.paletteEquation(palette, start, end, maxIter)
         start = end
-        end = "blue"
+        end = "green"
         palette += self.paletteEquation(palette, start, end, maxIter)
         start = end
-        end = "orange"
+        end = "white"
         palette += self.paletteEquation(palette, start, end, maxIter)
         return palette
 
