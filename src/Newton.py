@@ -7,12 +7,13 @@ class NewtonFrac(Fractal):
         EPSILON = 0.000001
         ROOTS = [1, -0.5 + 0.5j * 3 ** 0.5, -0.5 - 0.5j * 3 ** 0.5]
 
-        z = complex(0, 0)
+        z = c
         for i in range(maxIter):
             dz = 3 * z ** 2
+            nz = (z**3 -1)
             if dz == 0:
-                dz = 1
-            z = z - (z ** 3 - 1) / dz
+                dz += 1
+            z = z - (nz / dz)
 
             for root in ROOTS:
                 diff = z - root
