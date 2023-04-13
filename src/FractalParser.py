@@ -8,7 +8,7 @@ def safe_convert(obj, new_type):
 
 def parse(file):
     if file == 'default':
-        return {"type": "mandelbrot4", "centerx": 0.612345, 'centery': -0.854321, 'axislength': 0.6321, 'pixels': 640, 'iterations': 512}
+        return {"type": "phoenix", "centerx": 0.2952345, 'centery': -0.254321, 'axislength': 0.6321, 'pixels': 640, 'iterations': 224}
     requiredFields = {'type', 'centerx', 'centery', 'axislength', 'pixels', 'iterations'}
 
     optionalFields = {'creal', 'cimag', 'parameter'}

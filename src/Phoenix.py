@@ -30,7 +30,7 @@ class PhoenixFrac(Fractal):
     def __init__(self, z, maxIter):
         super().__init__(z, maxIter)
 
-    def count(self, maxIter, z):
+    def count(self, z, maxIter):
 
 
         Julia = complex(0.5667, 0.0)
@@ -39,7 +39,7 @@ class PhoenixFrac(Fractal):
         zFlipped = complex(z.imag, z.real)
         zPrev = 0+0j
         z = zFlipped
-
+        maxIter = int(maxIter)
         for i in range(maxIter):
             zSave = z
             z = z * z + Julia + (pheonix * zPrev)

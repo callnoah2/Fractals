@@ -17,7 +17,7 @@ class wildPal(Palette):
         palette = []
         start = "green"
         end = "yellow"
-        maxIter = int(maxIter/25)
+        maxIter = int(maxIter/22)
         palette += self.paletteEquation(palette, start, end, maxIter)
         start = end
         end = "orange"
