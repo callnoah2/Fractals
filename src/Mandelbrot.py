@@ -32,7 +32,6 @@ class MandelbrotFrac(Fractal):
         super().__init__(c,  maxIter)
 
     def count(self, c, maxIter):
-
         z = complex(0, 0)
         for i in range(maxIter):
             z = z * z + c

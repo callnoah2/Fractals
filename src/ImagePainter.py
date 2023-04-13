@@ -41,7 +41,7 @@ def make_picture_of_fractal(fractalInfo, Fractal, paletteName, FractalName):
             X = min_coord[0] + col * size
             Y = min_coord[1] + row * size
 
-            cp = Fractal.count((complex(X,Y)), maxIter)
+            cp = Fractal.count(Fractal, (complex(X,Y)), maxIter)
             color = palette.getColor(cp)
             cs.append(color)
         pixels = '{' + ' '.join(cs) + '}'
