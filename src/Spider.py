@@ -8,6 +8,7 @@ class SpiderFrac(Fractal):
         z = complex(0, 0)
         for i in range(maxIter):
             z = z * z + c
+            c = (c/2) + z
             if abs(z) > 2:
                 return i
         return maxIter
