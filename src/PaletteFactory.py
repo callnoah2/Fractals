@@ -4,12 +4,14 @@ from wild import wildPal
 from crazyPal import CrazyPal
 from awesome import awesomePal
 from simple import simplePal
+from slow import slowPal
 def makePalette(paletteName):
     palettes = {
         "wild": wildPal(),
         "crazy": CrazyPal(),
         "awesome": awesomePal(),
-        "simple": simplePal()
+        "simple": simplePal(),
+        "slow": slowPal()
     }
 
     if paletteName in palettes:

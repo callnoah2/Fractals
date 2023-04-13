@@ -22,8 +22,6 @@ def parse(file):
                 continue
             elif line.startswith("#"):
                 continue
-            elif line.startswith("p"):
-                continue
             elif ':' not in line:
                 raise RuntimeError(f"No ':' found in line {lineNumber + 1}")
             key, value = map(str.strip, line.lower().split(':'))
