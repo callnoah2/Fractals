@@ -12,6 +12,7 @@
 ## Palette Options
 * slowPal
 * crazyPal
+* awesome
 
 ## What you will see:
 * A new window should appear and the fractal should start to print.

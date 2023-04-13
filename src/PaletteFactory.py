@@ -5,8 +5,8 @@ from crazyPal import CrazyPal
 from awesome import awesomePal
 def makePalette(paletteName):
     palettes = {
-        "wildPal": wildPal(),
-        "crazyPal": CrazyPal(),
+        "wild": wildPal(),
+        "crazy": CrazyPal(),
         "awesome": awesomePal()
     }
 
